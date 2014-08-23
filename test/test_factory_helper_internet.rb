@@ -11,6 +11,12 @@ class TestFactoryHelperInternet < Test::Unit::TestCase
     assert @tester.email.match(/.+@.+\.\w+/)
   end
 
+  def test_email_ru
+    I18n.with_locale('ru') do
+      assert FactoryHelper::Internet.email.match(/.+@.+\.\w+/)
+    end
+  end
+
   def test_free_email
     assert @tester.free_email.match(/.+@(gmail|hotmail|yahoo)\.com/)
   end
