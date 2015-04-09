@@ -100,7 +100,11 @@ FactoryHelper::Address.state_abbr #=> "AP"
 
 FactoryHelper::Address.state #=> "California"
 
+FactoryHelper::Address.state_abbr #=> "AP"
+
 FactoryHelper::Address.country #=> "French Guiana"
+
+FactoryHelper::Address.country_code #=> "IT"
 
 FactoryHelper::Address.latitude #=> "-58.17256227443719"
 
