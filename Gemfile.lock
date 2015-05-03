@@ -1,20 +1,23 @@
 PATH
   remote: .
   specs:
-    faker (1.4.3)
+    factory-helper (1.5.0)
       i18n (~> 0.5)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    i18n (0.6.9)
-    rake (10.1.0)
-    test-unit (2.5.5)
+    i18n (0.7.0)
+    power_assert (0.2.3)
+    rake (10.4.2)
+    test-unit (3.0.9)
+      power_assert
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  faker!
+  bundler (~> 1.7)
+  factory-helper!
   rake
   test-unit
