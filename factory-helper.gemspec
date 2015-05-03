@@ -12,6 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.}
   spec.homepage      = "https://github.com/factory-helper/factory-helper"
   spec.license       = "MIT"
+  spec.required_ruby_version = ">= 1.9.3"
 
   spec.add_dependency('i18n', '~> 0.5')
 
