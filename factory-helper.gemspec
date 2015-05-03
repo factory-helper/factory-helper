@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["public88878878887@hotmail.com"]
   spec.summary       = %q{Easily generate fake data}
   spec.description   = %q{Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/factory-helper/factory-helper"
   spec.license       = "MIT"
 
   spec.add_dependency('i18n', '~> 0.5')
