@@ -1,17 +1,13 @@
-Faker
+factory-helper
 =====
 This gem is a port of Perl's Data::Faker library that generates fake data.
 
-It comes in very handy for taking screenshots (taking screenshots for my
-project, [Catch the Best](http://catchthebest.com/) was the original impetus
-for the creation of this gem), having real-looking test data, and having your
-database populated with more than one or two records while you're doing
-development.
+It comes in very handy for taking screenshots, having real-looking test data, and having your database populated with more than one or two records while you're doing development.
 
 Installing
 ----------
 ```bash
-gem install faker
+gem install factory-helper
 ```
 
 ##Usage
@@ -436,11 +432,7 @@ en-au-ocker:
 
 Contributing
 ------------
-See [CONTRIBUTING.md](https://github.com/stympy/faker/blob/master/CONTRIBUTING.md).
-
-Contact
--------
-Comments and feedback are welcome. Send an email to Benjamin Curtis via the [google group](http://groups.google.com/group/ruby-faker).
+See [CONTRIBUTING.md](https://github.com/factory-helper/factory-helper/blob/master/CONTRIBUTING.md).
 
 License
 -------
