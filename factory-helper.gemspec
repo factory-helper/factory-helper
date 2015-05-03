@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 1.9.3"
 
-  spec.add_dependency('i18n', '~> 0.5')
+  spec.add_dependency('i18n', '0.6.9')
 
   spec.files         = `git ls-files -- lib/*`.split("\n") + %w(History.txt License.txt README.md)
   spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
