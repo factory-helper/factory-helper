@@ -1,8 +1,10 @@
 factory-helper
 =====
-This gem began as a fork of stympy's Faker which is a port of Perl's Data::Faker library that generates fake data.
+This gem began life as a fork of [stympy's Faker](https://github.com/stympy/faker).
 
-Its primary purpose is to facilitate software testing by allowing factories to have a solid source of random data with defined characteristics, but can be used for many other purposes as well as in production code.
+Its purpose is to facilitate software testing by allowing factories to have a solid source of random data with defined characteristics, but can be used for many other purposes as well as in production code.
+
+It's main use-case is slightly different than faker and will evolve in that direction, with a primary focus on software testing and not real-looking data.  Also the plan is to get some new features added, some of which have been stuck in PRs on the original repo, and many are planned by the authors.
 
 Installing
 ----------
@@ -433,6 +435,10 @@ en-au-ocker:
 Contributing
 ------------
 See [CONTRIBUTING.md](https://github.com/factory-helper/factory-helper/blob/master/CONTRIBUTING.md).
+
+Contact
+-------
+Comments and feedback are welcome. Send an email to public88878878887@hotmail.com.
 
 License
 -------
