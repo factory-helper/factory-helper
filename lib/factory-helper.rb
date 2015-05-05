@@ -178,5 +178,5 @@ require_relative 'factory-helper/number'
 require_relative 'factory-helper/hacker'
 require_relative 'factory-helper/app'
 
-require 'extensions/array'
-require 'extensions/symbol'
+require_relative 'extensions/array'
+require_relative 'extensions/symbol'

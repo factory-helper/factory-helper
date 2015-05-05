@@ -6,7 +6,7 @@ require 'factory-helper/version'
 Gem::Specification.new do |spec|
   spec.name          = "factory-helper"
   spec.version       = FactoryHelper::VERSION
-  spec.authors       = ["theB264"]
+  spec.authors       = ["Brian Giaraffa", "Nikita Avvakumov"]
   spec.email         = ["public88878878887@hotmail.com"]
   spec.summary       = %q{Easily generate fake data}
   spec.description   = %q{Easily generate fake data: names, addresses, phone numbers, etc.}
