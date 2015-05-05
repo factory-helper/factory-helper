@@ -1,4 +1,5 @@
 pkg/*
+coverage/*
 
 # Ignore Vim backup files.
 *~
