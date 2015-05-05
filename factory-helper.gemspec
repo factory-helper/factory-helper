@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Easily generate fake data: names, addresses, phone numbers, etc.}
   spec.homepage      = "https://github.com/factory-helper/factory-helper"
   spec.license       = "MIT"
-  spec.required_ruby_version = ">= 1.9.3"
+  spec.required_ruby_version = ">= 1.9.2"
 
   spec.add_dependency('i18n', '0.6.9')
 
