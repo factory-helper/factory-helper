@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "factory-helper"
   spec.version       = FactoryHelper::VERSION
   spec.authors       = ["Brian Giaraffa", "Nikita Avvakumov"]
-  spec.email         = ["public88878878887@hotmail.com"]
+  spec.email         = ["factory-helper@googlegroups.com"]
   spec.summary       = %q{Easily generate fake data}
   spec.description   = %q{Easily generate fake data: names, addresses, phone numbers, etc.}
   spec.homepage      = "https://github.com/factory-helper/factory-helper"
