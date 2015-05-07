@@ -2,6 +2,7 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestFakerCity < Test::Unit::TestCase
   def setup
+    I18n.reload!
     xx = {
       :faker => {
         :name => {:first_name => ['alice'], :last_name => ['smith']},

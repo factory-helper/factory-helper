@@ -5,15 +5,15 @@ class TestFakerCommerce < Test::Unit::TestCase
   def setup
     @tester = Faker::Commerce
   end
-  
+
   def test_color
     assert @tester.color.match(/[a-z]+\.?/)
   end
-  
+
   def test_department
     assert @tester.department.match(/[A-Z][a-z]+\.?/)
   end
-  
+
   def test_single_department_should_not_contain_separators
     assert_match(/\A[A-Za-z]+\z/, @tester.department(1))
   end
@@ -32,6 +32,7 @@ class TestFakerCommerce < Test::Unit::TestCase
       }
     }
 
+    I18n.reload!
     I18n.backend.store_translations(:xy, data)
     I18n.with_locale(:xy) do
       assert_match ' + ', @tester.department(2, true)
