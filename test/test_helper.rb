@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 require 'test/unit'
 require 'rubygems'
 require 'yaml'
