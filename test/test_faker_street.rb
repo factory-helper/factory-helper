@@ -2,6 +2,7 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestFakerStreet < Test::Unit::TestCase
   def setup
+    I18n.reload!
     shire = {
       :faker => {
         :address => {

@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     factory-helper (1.5.1)
-      i18n (= 0.6.9)
+      i18n (~> 0.7)
 
 GEM
   remote: http://rubygems.org/
@@ -18,7 +18,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
-    i18n (0.6.9)
+    i18n (0.7.0)
     json (1.8.2)
     mime-types (2.5)
     netrc (0.10.3)
