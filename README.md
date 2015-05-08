@@ -444,7 +444,7 @@ See [CONTRIBUTING.md](https://github.com/factory-helper/factory-helper/blob/mast
 
 Contact
 -------
-Comments and feedback are welcome. Send an email to public88878878887@hotmail.com.
+Comments and feedback are welcome. Send an email to factory-helper@googlegroups.com.
 
 License
 -------
