@@ -8,6 +8,7 @@ It's main use-case is slightly different than faker and will evolve in that dire
 
 [![Build Status](https://travis-ci.org/factory-helper/factory-helper.svg)](https://travis-ci.org/factory-helper/factory-helper)
 [![Coverage Status](https://coveralls.io/repos/factory-helper/factory-helper/badge.svg)](https://coveralls.io/r/factory-helper/factory-helper)
+[![Gem Version](https://badge.fury.io/rb/factory-helper.svg)](http://badge.fury.io/rb/factory-helper)
 
 Installing
 ----------
