@@ -1,5 +1,5 @@
 fr:
-  faker:
+  factory_helper:
     address:
       building_number: ['####', '###', '##', '#']
       street_prefix: ["Allée, Voie", "Rue", "Avenue", "Boulevard", "Quai", "Passage", "Impasse", "Place"]

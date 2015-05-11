@@ -1,4 +1,4 @@
-module Faker
+module FactoryHelper
   class PhoneNumber < Base
     class << self
       def phone_number

@@ -1,5 +1,5 @@
 # encoding: utf-8
-module Faker
+module FactoryHelper
   class Internet < Base
     class << self
       def email(name = nil)
@@ -105,7 +105,7 @@ module Faker
 
       def slug(words = nil, glue = nil)
         glue ||= %w[- _ .].sample
-        (words || Faker::Lorem::words(2).join(' ')).gsub(' ', glue).downcase
+        (words || FactoryHelper::Lorem::words(2).join(' ')).gsub(' ', glue).downcase
       end
 
       def device_token

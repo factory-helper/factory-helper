@@ -15,7 +15,7 @@ end
 I18n.load_path += Dir[File.join(mydir, 'locales', '*.yml')]
 
 
-module Faker
+module FactoryHelper
   class Config
     @locale = nil
 
@@ -83,7 +83,7 @@ module Faker
       # Helper for the common approach of grabbing a translation
       # with an array of values and selecting one of them.
       def fetch(key)
-        fetched = translate("faker.#{key}")
+        fetched = translate("factory_helper.#{key}")
         fetched = fetched.sample if fetched.respond_to?(:sample)
         if fetched.match(/^\//) and fetched.match(/\/$/) # A regex
           regexify(fetched)
@@ -99,14 +99,14 @@ module Faker
         fetch(key).scan(/(\(?)#\{([A-Za-z]+\.)?([^\}]+)\}([^#]+)?/).map {|prefix, kls, meth, etc|
           # If the token had a class Prefix (e.g., Name.first_name)
           # grab the constant, otherwise use self
-          cls = kls ? Faker.const_get(kls.chop) : self
+          cls = kls ? FactoryHelper.const_get(kls.chop) : self
 
           # If an optional leading parentheses is not present, prefix.should == "", otherwise prefix.should == "("
           # In either case the information will be retained for reconstruction of the string.
           text = prefix
 
           # If the class has the method, call it, otherwise
-          # fetch the transation (i.e., faker.name.first_name)
+          # fetch the transation (i.e., factory_helper.name.first_name)
           text += cls.respond_to?(meth) ? cls.send(meth) : fetch("#{(kls || self).to_s.split('::').last.downcase}.#{meth.downcase}")
 
           # And tack on spaces, commas, etc. left over in the string
@@ -118,7 +118,7 @@ module Faker
       # locale is specified
       def translate(*args)
         opts = args.last.is_a?(Hash) ? args.pop : {}
-        opts[:locale] ||= Faker::Config.locale
+        opts[:locale] ||= FactoryHelper::Config.locale
         opts[:raise] = true
         I18n.translate(*(args.push(opts)))
       rescue I18n::MissingTranslationData
@@ -136,12 +136,12 @@ module Faker
       # E.g., in your locale file, create a
       #   name:
       #     girls_name: ["Alice", "Cheryl", "Tatiana"]
-      # Then you can call Faker::Name.girls_name and it will act like #first_name
+      # Then you can call FactoryHelper::Name.girls_name and it will act like #first_name
       def method_missing(m, *args, &block)
         super unless @flexible_key
 
         # Use the alternate form of translate to get a nil rather than a "missing translation" string
-        if translation = translate(:faker)[@flexible_key][m]
+        if translation = translate(:factory_helper)[@flexible_key][m]
           translation.respond_to?(:sample) ? translation.sample : translation
         else
           super

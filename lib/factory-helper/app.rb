@@ -1,4 +1,4 @@
-module Faker
+module FactoryHelper
   class App < Base
     class << self
 

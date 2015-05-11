@@ -1,4 +1,4 @@
-module Faker
+module FactoryHelper
   class Company < Base
     flexible :company
 
@@ -13,12 +13,12 @@ module Faker
 
       # Generate a buzzword-laden catch phrase.
       def catch_phrase
-        translate('faker.company.buzzwords').collect {|list| list.sample }.join(' ')
+        translate('factory_helper.company.buzzwords').collect {|list| list.sample }.join(' ')
       end
 
       # When a straight answer won't do, BS to the rescue!
       def bs
-        translate('faker.company.bs').collect {|list| list.sample }.join(' ')
+        translate('factory_helper.company.bs').collect {|list| list.sample }.join(' ')
       end
 
       def ein

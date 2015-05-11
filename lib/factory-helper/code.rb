@@ -1,4 +1,4 @@
-module Faker
+module FactoryHelper
   class Code < Base
     class << self
       # By default generates 10 sign isbn code in format 123456789-X

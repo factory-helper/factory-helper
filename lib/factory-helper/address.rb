@@ -1,4 +1,4 @@
-module Faker
+module FactoryHelper
   class Address < Base
     flexible :address
 

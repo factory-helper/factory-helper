@@ -11,10 +11,10 @@ end
 require 'redcloth'
 require 'syntax/convertors/html'
 require 'erb'
-require File.dirname(__FILE__) + '/../lib/faker/version.rb'
+require File.dirname(__FILE__) + '/../lib/factory_helper/version.rb'
 
-version  = Faker::VERSION
-download = 'http://rubyforge.org/projects/faker'
+version  = FactoryHelper::VERSION
+download = 'https://github.com/factory-helper/factory-helper'
 
 class Fixnum
   def ordinal
@@ -43,7 +43,7 @@ end
 if ARGV.length >= 1
   src, template = ARGV
   template ||= File.join(File.dirname(__FILE__), '/../website/template.rhtml')
-  
+
 else
   puts("Usage: #{File.split($0).last} source.txt [template.rhtml] > output.html")
   exit!

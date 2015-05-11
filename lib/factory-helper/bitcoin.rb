@@ -1,7 +1,7 @@
 require 'digest'
 require 'securerandom'
 
-module Faker
+module FactoryHelper
   class Bitcoin < Base
     class << self
 

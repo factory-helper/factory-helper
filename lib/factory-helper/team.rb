@@ -1,4 +1,4 @@
-module Faker
+module FactoryHelper
   class Team < Base
     flexible :team
 
@@ -12,7 +12,7 @@ module Faker
       end
 
       def state
-        fetch('faker.address.state').titleize
+        fetch('factory_helper.address.state').titleize
       end
     end
 

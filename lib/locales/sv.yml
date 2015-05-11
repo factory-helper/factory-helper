@@ -1,6 +1,6 @@
 
 sv:
-  faker:
+  factory_helper:
     address:
       city_prefix: [Söder, Norr, Väst, Öster, Aling, Ar, Av, Bo, Br, Bå, Ek, En, Esk, Fal, Gäv, Göte, Ha, Helsing, Karl, Krist, Kram, Kung, Kö, Lyck, Ny]
       city_suffix: [stad, land, sås, ås, holm, tuna, sta, berg, löv, borg, mora, hamn, fors, köping, by, hult, torp, fred, vik]

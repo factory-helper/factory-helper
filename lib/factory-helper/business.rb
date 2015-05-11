@@ -1,6 +1,6 @@
 require 'date'
 
-module Faker
+module FactoryHelper
   class Business < Base
     flexible :business
 

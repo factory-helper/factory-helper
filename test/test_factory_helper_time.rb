@@ -1,9 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFakerTime < Test::Unit::TestCase
+class TestFactoryHelperTime < Test::Unit::TestCase
   def setup
-    @tester      = Faker::Time
-    @time_ranges = Faker::Time::TIME_RANGES
+    @tester      = FactoryHelper::Time
+    @time_ranges = FactoryHelper::Time::TIME_RANGES
   end
 
   def test_between
@@ -67,7 +67,7 @@ class TestFakerTime < Test::Unit::TestCase
       random_forward  = @tester.forward(30, period)
 
       [random_backward, random_between, random_forward].each do |result|
-        assert period_range.include?(result.hour.to_i), "\"#{result.hour}\" expected to be included in Faker::Time::TIME_RANGES[:#{period}] range"
+        assert period_range.include?(result.hour.to_i), "\"#{result.hour}\" expected to be included in FactoryHelper::Time::TIME_RANGES[:#{period}] range"
       end
     end
   end

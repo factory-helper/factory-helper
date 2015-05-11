@@ -1,5 +1,5 @@
 #Port of http://shinytoylabs.com/jargon/
-module Faker
+module FactoryHelper
   class Hacker < Base
     flexible :hacker
     

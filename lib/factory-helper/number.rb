@@ -1,4 +1,4 @@
-module Faker
+module FactoryHelper
   class Number < Base
     class << self
       def number(digits)
@@ -22,7 +22,7 @@ module Faker
       end
 
       def between(from = 1.00, to = 5000.00)
-        Faker::Base::rand_in_range(from, to)
+        FactoryHelper::Base::rand_in_range(from, to)
       end
 
       def positive(from = 1.00, to = 5000.00)

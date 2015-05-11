@@ -1,8 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFakerApp < Test::Unit::TestCase
+class TestFactoryHelperApp < Test::Unit::TestCase
   def setup
-    @tester = Faker::App
+    @tester = FactoryHelper::App
   end
 
   def test_name

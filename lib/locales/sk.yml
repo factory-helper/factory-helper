@@ -1,5 +1,5 @@
 sk:
-  faker:
+  factory_helper:
     address:
       city_prefix: [North, East, West, South, New, Lake, Port]
       city_suffix: [town, ton, land, ville, berg, burgh, borough, bury, view, port, mouth, stad, furt, chester, mouth, fort, haven, side, shire]

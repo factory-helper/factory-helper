@@ -2,7 +2,7 @@
 # This file is formatted for Nepal.
 
 nep:
-  faker:
+  factory_helper:
     name:
       first_name: [
                     "Aarav", "Ajita", "Amit", "Amita", "Amrit", "Arijit", "Ashmi", "Asmita", "Bibek", "Bijay", "Bikash", "Bina", "Bishal",

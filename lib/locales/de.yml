@@ -1,5 +1,5 @@
 de:
-  faker:
+  factory_helper:
     address:
       city_prefix: [Nord, Ost, West, Süd, Neu, Alt, Bad]
       city_suffix: [stadt, dorf, land, scheid, burg]

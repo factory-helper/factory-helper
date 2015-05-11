@@ -1,4 +1,4 @@
-module Faker
+module FactoryHelper
   class Name < Base
     flexible :name
 

@@ -1,11 +1,11 @@
-module Faker
+module FactoryHelper
   class Date < Base
     class << self
       def between(from, to)
         from = get_date_object(from)
         to   = get_date_object(to)
 
-        Faker::Base::rand_in_range(from, to)
+        FactoryHelper::Base::rand_in_range(from, to)
       end
 
       def forward(days = 365)
