@@ -1,12 +1,12 @@
-require File.dirname(__FILE__) + '/test_helper.rb'
+require File.dirname(__FILE__) + '/../test_helper.rb'
 
-module FactoryHelper
+module Faker
   class Foodie < Base
     flexible :chow
   end
 end
 
-class TestFlexible < Test::Unit::TestCase
+class TestFakerFlexible < Test::Unit::TestCase
 
   def setup
     I18n.reload!
@@ -18,40 +18,40 @@ class TestFlexible < Test::Unit::TestCase
 
   def test_flexible_multiple_values
     I18n.with_locale(:xx) do
-      actual = FactoryHelper::Foodie.yummie
+      actual = Faker::Foodie.yummie
       assert [:fudge, :chocolate, :caramel].include? actual
     end
   end
 
   def test_flexible_single_value
     I18n.with_locale(:xx) do
-      assert_equal "delicious", FactoryHelper::Foodie.taste
+      assert_equal "delicious", Faker::Foodie.taste
     end
   end
 
   def test_raises_no_method_error
     I18n.with_locale(:xx) do
       assert_raise(NoMethodError) do
-        FactoryHelper::Foodie.eeew
+        Faker::Foodie.eeew
       end
     end
   end
 
   def test_address_is_flexible
     I18n.with_locale(:home) do
-      assert [:bed, :hospital, :airplane].include? FactoryHelper::Address.birthplace
+      assert [:bed, :hospital, :airplane].include? Faker::Address.birthplace
     end
   end
 
   def test_name_is_flexible
     I18n.with_locale(:kindergarden) do
-      assert [:alice, :cheryl, :tatiana].include? FactoryHelper::Name.girls_name
+      assert [:alice, :cheryl, :tatiana].include? Faker::Name.girls_name
     end
   end
 
   def test_company_is_flexible
     I18n.with_locale(:work) do
-      assert FactoryHelper::Company.do_stuff == :work
+      assert Faker::Company.do_stuff == :work
     end
   end
 end

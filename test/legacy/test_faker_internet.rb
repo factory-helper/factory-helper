@@ -1,9 +1,9 @@
-require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
+require File.expand_path(File.dirname(__FILE__) + '/../test_helper.rb')
 
-class TestFactoryHelperInternet < Test::Unit::TestCase
+class TestFakerInternet < Test::Unit::TestCase
 
   def setup
-    @tester = FactoryHelper::Internet
+    @tester = Faker::Internet
   end
 
   def test_email

@@ -1,8 +1,8 @@
-require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
+require File.expand_path(File.dirname(__FILE__) + '/../test_helper.rb')
 
-class TestFactoryHelperDate < Test::Unit::TestCase
+class TestFakerDate < Test::Unit::TestCase
   def setup
-    @tester = FactoryHelper::Date
+    @tester = Faker::Date
   end
 
   def test_between

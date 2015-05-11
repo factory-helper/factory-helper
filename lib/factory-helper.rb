@@ -157,6 +157,8 @@ module FactoryHelper
   end
 end
 
+Faker= FactoryHelper
+
 require_relative 'factory-helper/address'
 require_relative 'factory-helper/code'
 require_relative 'factory-helper/company'

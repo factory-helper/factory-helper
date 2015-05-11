@@ -1,9 +1,9 @@
-require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
+require File.expand_path(File.dirname(__FILE__) + '/../test_helper.rb')
 
-class TestFactoryHelperCommerce < Test::Unit::TestCase
+class TestFakerCommerce < Test::Unit::TestCase
 
   def setup
-    @tester = FactoryHelper::Commerce
+    @tester = Faker::Commerce
   end
 
   def test_color

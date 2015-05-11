@@ -1,6 +1,6 @@
-require File.dirname(__FILE__) + '/test_helper.rb'
+require File.dirname(__FILE__) + '/../test_helper.rb'
 
-class TestFactoryHelperCity < Test::Unit::TestCase
+class TestFakerCity < Test::Unit::TestCase
   def setup
     I18n.reload!
     xx = {
@@ -29,7 +29,7 @@ class TestFactoryHelperCity < Test::Unit::TestCase
     I18n.with_locale(:xx) do
       100.times do
         cities = ["west alice", "west smith", "west aliceburg", "west smithburg", "aliceburg", "smithburg"]
-        city = FactoryHelper::Address.city
+        city = Faker::Address.city
         assert cities.include?(city), "Expected <#{cities.join(' / ')}>, but got #{city}"
       end
     end
@@ -38,7 +38,7 @@ class TestFactoryHelperCity < Test::Unit::TestCase
   def test_city_formats_are_flexible
     I18n.with_locale(:xy) do
       cities = ['big rocking town']
-      city = FactoryHelper::Address.city
+      city = Faker::Address.city
       assert cities.include?(city), "Expected <#{cities.join(' / ')}>, but got #{city}"
     end
   end

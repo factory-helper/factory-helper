@@ -1,10 +1,10 @@
-require File.dirname(__FILE__) + '/test_helper.rb'
+require File.dirname(__FILE__) + '/../test_helper.rb'
 
 # when these tests are run under Ruby 1.8.7, they will use the
 # self-defined Array#sample method in lib/extensions/array and will test whether it
 # behaves as the built-in Array#sample method from Ruby 1.9 or greater.
 # Under Ruby 1.9, they simply use the built-in Array#sample method
-class TestArraySampleMethodCompatibility < Test::Unit::TestCase
+class TestFakerArraySampleMethodCompatibility < Test::Unit::TestCase
 
   def test_returns_nil_or_empty_array_with_empty_source
     source = []

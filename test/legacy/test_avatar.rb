@@ -1,8 +1,8 @@
-require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
+require File.expand_path(File.dirname(__FILE__) + '/../test_helper.rb')
 
-class TestFactoryHelperAvatar < Test::Unit::TestCase
+class TestFakerAvatar < Test::Unit::TestCase
   def setup
-    @tester = FactoryHelper::Avatar
+    @tester = Faker::Avatar
   end
 
   def test_avatar

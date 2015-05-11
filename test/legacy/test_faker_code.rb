@@ -1,8 +1,8 @@
-require File.dirname(__FILE__) + '/test_helper.rb'
+require File.dirname(__FILE__) + '/../test_helper.rb'
 
-class TestFactoryHelperCode < Test::Unit::TestCase
+class TestFakerCode < Test::Unit::TestCase
   def setup
-    @tester = FactoryHelper::Code
+    @tester = Faker::Code
   end
 
   def test_default_isbn_regexp
