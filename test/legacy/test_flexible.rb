@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper.rb'
 
 module Faker
-  class Foodie < Base
+  class FoodieFaker < Base
     flexible :chow
   end
 end
@@ -18,21 +18,21 @@ class TestFakerFlexible < Test::Unit::TestCase
 
   def test_flexible_multiple_values
     I18n.with_locale(:xx) do
-      actual = Faker::Foodie.yummie
+      actual = Faker::FoodieFaker.yummie
       assert [:fudge, :chocolate, :caramel].include? actual
     end
   end
 
   def test_flexible_single_value
     I18n.with_locale(:xx) do
-      assert_equal "delicious", Faker::Foodie.taste
+      assert_equal "delicious", Faker::FoodieFaker.taste
     end
   end
 
   def test_raises_no_method_error
     I18n.with_locale(:xx) do
       assert_raise(NoMethodError) do
-        Faker::Foodie.eeew
+        Faker::FoodieFaker.eeew
       end
     end
   end

@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper.rb')
 
-class TestFakerEnUsLocale < Test::Unit::TestCase
+class TesetFakerEnUsLocale < Test::Unit::TestCase
   def setup
     Faker::Config.locale = nil
   end
