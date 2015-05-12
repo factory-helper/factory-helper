@@ -1,5 +1,5 @@
 pt-BR:
-  faker:
+  factory_helper:
     address:
       city_prefix: [Nova, Velha, Grande, Vila, Município de]
       city_suffix: [do Descoberto, de Nossa Senhora, do Norte, do Sul]

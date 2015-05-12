@@ -2,11 +2,11 @@ require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
 class TesetEnLocale < Test::Unit::TestCase
   def setup
-    Faker::Config.locale = nil
+    FactoryHelper::Config.locale = nil
   end
 
   def teardown
-    Faker::Config.locale = nil
+    FactoryHelper::Config.locale = nil
   end
 
   def test_us_states_only_include_states
@@ -17,9 +17,9 @@ class TesetEnLocale < Test::Unit::TestCase
   end
 
   def test_us_zip_codes
-    Faker::Config.locale = 'en-US'
+    FactoryHelper::Config.locale = 'en-US'
     expected = /\d{5}(\-\d{4})?/
-    assert_match(expected, Faker::Address.zip_code)
+    assert_match(expected, FactoryHelper::Address.zip_code)
   end
 
 end

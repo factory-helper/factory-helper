@@ -33,7 +33,7 @@
 * 1 major change:
   * Removed deprecated methods from Address: earth_country, us_state, us_state_abbr, uk_postcode, uk_county
 * Many minor changes (please see github pull requests for credits)
-  * Added many localizations 
+  * Added many localizations
   * Added range and array support for Lorem
 
 == 1.0.1 2011-09-27
@@ -67,7 +67,7 @@
   * Added Canadian translation [igbanam]
   * Added Norwegian translation [kytrinyx]
   * Lots of translation-related cleanup [kytrinyx]
-  
+
 
 == 0.9.5 2011-01-27
 * 1 minor bug fix:
@@ -109,7 +109,7 @@
 * 3 major enhancements:
   * Added Lorem to generate fake Latin
   * Added secondary_address to Address, and made inclusion of
-    secondary address in street_address optional (false by 
+    secondary address in street_address optional (false by
     default).
   * Added UK address methods [Caius Durling]
 

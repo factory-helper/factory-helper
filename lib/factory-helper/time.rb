@@ -1,4 +1,4 @@
-module Faker
+module FactoryHelper
   class Time < Date
     TIME_RANGES = {
       :all => (0..23),

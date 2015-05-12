@@ -1,5 +1,5 @@
 it:
-  faker:
+  factory_helper:
     address:
       city_prefix: [San, Borgo, Sesto, Quarto, Settimo]
       city_suffix: [a mare, lido, ligure, del friuli, salentino, calabro, veneto, nell'emilia, umbro, laziale, terme, sardo]

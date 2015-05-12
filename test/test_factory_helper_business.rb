@@ -1,12 +1,12 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestFakerBusiness < Test::Unit::TestCase
+class TestFactoryHelperBusiness < Test::Unit::TestCase
 
   def setup
-    @tester = Faker::Business
-    @credit_card_number_list = I18n.translate('faker.business.credit_card_numbers')
-    @credit_card_number_expiry_dates = I18n.translate('faker.business.credit_card_expiry_dates')
-    @credit_card_types = I18n.translate('faker.business.credit_card_types')
+    @tester = FactoryHelper::Business
+    @credit_card_number_list = I18n.translate('factory_helper.business.credit_card_numbers')
+    @credit_card_number_expiry_dates = I18n.translate('factory_helper.business.credit_card_expiry_dates')
+    @credit_card_types = I18n.translate('factory_helper.business.credit_card_types')
   end
 
   def test_credit_card_number

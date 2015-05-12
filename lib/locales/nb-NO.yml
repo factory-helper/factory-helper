@@ -1,6 +1,6 @@
 # coding: utf-8
 nb-NO:
-  faker:
+  factory_helper:
     address:
       city_root: ["Fet", "Gjes", "Høy", "Inn", "Fager", "Lille", "Lo", "Mal", "Nord", "Nær", "Sand", "Sme", "Stav", "Stor", "Tand", "Ut", "Vest"]
       city_suffix: ["berg", "borg", "by", "bø", "dal", "eid", "fjell", "fjord", "foss", "grunn", "hamn", "havn", "helle", "mark", "nes", "odden", "sand", "sjøen", "stad", "strand", "strøm", "sund", "vik", "vær", "våg", "ø", "øy", "ås"]

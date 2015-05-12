@@ -1,9 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFakerCommerce < Test::Unit::TestCase
+class TestFactoryHelperCommerce < Test::Unit::TestCase
 
   def setup
-    @tester = Faker::Commerce
+    @tester = FactoryHelper::Commerce
   end
 
   def test_color
@@ -24,7 +24,7 @@ class TestFakerCommerce < Test::Unit::TestCase
 
   def test_department_should_accept_localized_separator
     data = {
-      :faker => {
+      :factory_helper => {
         :separator => ' + ',
         :commerce => {
           :department => ['Books', 'Movies']

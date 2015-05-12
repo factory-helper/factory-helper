@@ -1,6 +1,6 @@
 # coding: utf-8
 zh-CN:
-  faker:
+  factory_helper:
     address:
       city_prefix: [长, 上, 南, 西, 北, 诸, 宁, 珠, 武, 衡, 成, 福, 厦, 贵, 吉, 海, 太, 济, 安, 吉, 包]
       city_suffix: [沙市, 京市, 宁市, 安市, 乡县, 海市, 码市, 汉市, 阳市, 都市, 州市, 门市, 阳市, 口市, 原市, 南市, 徽市, 林市, 头市]

@@ -1,6 +1,6 @@
 # encoding: UTF-8
 vi:
-  faker:
+  factory_helper:
     address:
       city_root: ["Bắc Giang", "Bắc Kạn", "Bắc Ninh", "Cao Bằng", "Điện Biên", "Hà Giang", "Hà Nam", "Hà Tây",
                   "Hải Dương", "TP Hải Phòng", "Hòa Bình", "Hưng Yên", "Lai Châu", "Lào Cai", "Lạng Sơn", "Nam Định",

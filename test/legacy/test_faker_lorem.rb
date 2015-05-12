@@ -1,18 +1,18 @@
-require File.dirname(__FILE__) + '/test_helper.rb'
+require File.dirname(__FILE__) + '/../test_helper.rb'
 
 class TestFakerLorem < Test::Unit::TestCase
 
   def setup
     @tester = Faker::Lorem
-    @standard_wordlist = I18n.translate('faker.lorem.words')
+    @standard_wordlist = I18n.translate('factory_helper.lorem.words')
     @complete_wordlist =
-      @standard_wordlist + I18n.translate('faker.lorem.supplemental')
+      @standard_wordlist + I18n.translate('factory_helper.lorem.supplemental')
   end
 
   def test_character
     assert @tester.character.length == 1
   end
-  
+
   def test_character_type
     assert @tester.character.class == String
   end
@@ -40,7 +40,7 @@ class TestFakerLorem < Test::Unit::TestCase
   # Faker::Lorem.word generates random word from standart wordlist
   def test_word
     @tester = Faker::Lorem
-    @standard_wordlist = I18n.translate('faker.lorem.words')
+    @standard_wordlist = I18n.translate('factory_helper.lorem.words')
     1000.times { assert @standard_wordlist.include?(@tester.word) }
   end
 

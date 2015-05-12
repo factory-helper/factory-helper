@@ -1,5 +1,5 @@
 en-US:
-  faker:
+  factory_helper:
     internet:
       domain_suffix: [com, us, biz, info, name, net, org]
     address:

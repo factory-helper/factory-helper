@@ -1,10 +1,10 @@
-require File.dirname(__FILE__) + '/test_helper.rb'
+require File.dirname(__FILE__) + '/../test_helper.rb'
 
 class TestFakerStreet < Test::Unit::TestCase
   def setup
     I18n.reload!
     shire = {
-      :faker => {
+      :factory_helper => {
         :address => {
           :street_name => ['#{street_prefix} #{street_root} #{street_suffix}'],
           :street_prefix => ["Wide"],

@@ -1,16 +1,16 @@
-module Faker
+module FactoryHelper
   # Based on Perl's Text::Lorem
   class Lorem < Base
     class << self
       def word
-        translate('faker.lorem.words').sample
+        translate('factory_helper.lorem.words').sample
       end
 
       def words(num = 3, supplemental = false)
         resolved_num = resolve(num)
         word_list = (
-          translate('faker.lorem.words') +
-          (supplemental ? translate('faker.lorem.supplemental') : [])
+          translate('factory_helper.lorem.words') +
+          (supplemental ? translate('factory_helper.lorem.supplemental') : [])
         )
         word_list = word_list * ((resolved_num / word_list.length) + 1)
         word_list.shuffle[0, resolved_num]
