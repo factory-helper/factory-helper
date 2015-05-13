@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    factory-helper (1.6.1)
+    factory-helper (1.6.2)
       i18n (~> 0.7)
 
 GEM
