@@ -179,6 +179,3 @@ require_relative 'factory-helper/time'
 require_relative 'factory-helper/number'
 require_relative 'factory-helper/hacker'
 require_relative 'factory-helper/app'
-
-require_relative 'extensions/array'
-require_relative 'extensions/symbol'
