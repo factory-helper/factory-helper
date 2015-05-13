@@ -8,3 +8,7 @@ rvm:
   - 2.2.0
 
 script: bundle exec rake test
+
+notifications:
+  slack:
+    secure: eM3KfU6AUILW0nyhXidW+9Cbz7hG/edUsgHK4/2PvErSkAui9hKsf8VpQxSsJvX35KA+Njq94lvCfTgRUt2WxRMwB0VLzDqwtfpaRGZqa0lbeWzlwi0w7v60uIgLo3IwcTQQXtNZQTTOuJ6GZESUAQoNaoVXBay35NbUki1dBMs=
