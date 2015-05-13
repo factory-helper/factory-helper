@@ -12,14 +12,16 @@ class TestPlLocale < Test::Unit::TestCase
   end
 
   def test_pl_phone_number
-    #TODO: this 999 is probably causing the intermittent failures
-    prefixes = (0..999).map { FactoryHelper::PhoneNumber.phone_number[0,2] }.uniq.sort
-    assert_equal @phone_prefixes, prefixes
+    999.times do
+      assert_includes @phone_prefixes,
+        FactoryHelper::PhoneNumber.phone_number[0,2]
+    end
   end
 
   def test_pl_cell_phone
-    #TODO: this 999 is probably causing the intermittent failures
-    prefixes = (0..999).map { FactoryHelper::PhoneNumber.cell_phone[0,2] }.uniq.sort
-    assert_equal @cell_prefixes, prefixes
+    999.times do
+      assert_includes @cell_prefixes,
+        FactoryHelper::PhoneNumber.cell_phone[0,2]
+    end
   end
 end
