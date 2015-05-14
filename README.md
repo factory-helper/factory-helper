@@ -1,12 +1,16 @@
 factory-helper
 =====
-This gem began life as a fork of [stympy's Faker](https://github.com/stympy/faker).
-
 **This is currently considered a _pre-release_ version by the authors.**
 
-Its purpose is to facilitate software testing by allowing factories to have a solid source of random data with defined characteristics, but can be used for many other purposes as well as in production code.
+This gem began life as a fork of [stympy's Faker](https://github.com/stympy/faker).
+While the usage examples below use the `FactoryHelper` name, the `Faker` constant
+remains available, aliased to `FactoryHelper`. Thus, the FactoryHelper gem can
+be used as a drop-in replacement for Faker without requiring any changes to your
+codebase.
 
-It's main use-case is slightly different than Faker and will evolve in that direction, with a primary focus on software testing and not real-looking data.  Also the plan is to get some new features added, some of which have been stuck in PRs on the original repo, and many are planned by the authors.
+FactoryHelper's purpose is to facilitate software testing by allowing factories to have a solid source of random data with defined characteristics, but the gem can be used for many other purposes as well as in production code.
+
+Its main use-case is slightly different than Faker's and will evolve in that direction, with a primary focus on software testing and not real-looking data. Many new features will also be added, some based on PRs submitted to the original repo.
 
 [![Build Status](https://travis-ci.org/factory-helper/factory-helper.svg)](https://travis-ci.org/factory-helper/factory-helper)
 [![Coverage Status](https://coveralls.io/repos/factory-helper/factory-helper/badge.svg)](https://coveralls.io/r/factory-helper/factory-helper)
@@ -16,6 +20,11 @@ Installing
 ----------
 ```bash
 gem install factory-helper
+```
+
+or in your Gemfile
+```ruby
+gem 'factory-helper'
 ```
 
 ##Usage
