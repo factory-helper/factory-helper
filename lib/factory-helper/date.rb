@@ -1,6 +1,8 @@
 module FactoryHelper
   class Date < Base
+
     class << self
+
       def between(from, to)
         from = get_date_object(from)
         to   = get_date_object(to)
@@ -24,8 +26,8 @@ module FactoryHelper
 
       def birthday(min_age = 18, max_age = 65)
         t = ::Date.today
-        from =  ::Date.new(t.year - min_age, t.month, t.day)
-        to   =  ::Date.new(t.year - max_age, t.month, t.day)
+        from =  ::Date.new(t.year - min_age, t.month, t.day - 1)
+        to   =  ::Date.new(t.year - max_age, t.month, t.day + 1)
 
         between(from, to).to_date
       end
