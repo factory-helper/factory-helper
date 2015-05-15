@@ -55,8 +55,8 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.7)
-  coveralls
+  coveralls (~> 0.8)
   factory-helper!
-  pry
+  pry (~> 0.10)
   rake
   test-unit

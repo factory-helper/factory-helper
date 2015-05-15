@@ -62,6 +62,7 @@ class TestFactoryHelperDate < Test::Unit::TestCase
       assert birthday < date_min, "Expect > \"#{date_max}\", but got #{birthday}"
     end
   end
+
   def test_default_birthday
     min = 10
     max = 65
