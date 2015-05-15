@@ -1,4 +1,4 @@
-module Faker
+module FactoryHelper
   class SlackEmoji < Base
     class << self
 

@@ -1,9 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFakerSlackEmoji < Test::Unit::TestCase
+class TestFactoryHelperSlackEmoji < Test::Unit::TestCase
 
   def setup
-    @tester = Faker::SlackEmoji
+    @tester = FactoryHelper::SlackEmoji
   end
 
   def test_people
