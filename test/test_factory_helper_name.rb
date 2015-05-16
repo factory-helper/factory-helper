@@ -24,14 +24,14 @@ class TestFactoryHelperName < Test::Unit::TestCase
   end
 
   def test_girls_first_name_en_US
-    FactoryHelper::Config.locale= 'en-US'.to_sym
+    FactoryHelper::Config.locale= 'en-US'
     1200.times do
       assert @tester.girls_first_name.match(/^([A-Z])(\w)*$/)
     end
   end
 
   def test_boys_first_name_en_US
-    FactoryHelper::Config.locale= 'en-US'.to_sym
+    FactoryHelper::Config.locale= 'en-US'
     300.times do
       assert @tester.boys_first_name.match(/^([A-Z])(\w)*$/)
     end
