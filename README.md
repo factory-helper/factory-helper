@@ -72,49 +72,41 @@ FactoryHelper::Address.country #=> "French Guiana"
 FactoryHelper::Address.latitude #=> "-58.17256227443719"
 
 FactoryHelper::Address.longitude #=> "-156.65548382095133"
-
-
 ```
 
 ###FactoryHelper::Bitcoin
 -----------------
 
 ```ruby
-
 FactoryHelper::Bitcoin.address #=> "1HUoGjmgChmnxxYhz87YytV4gVjfPaExmh"
-FactoryHelper::Bitcoin.testnet_address #=> ""msHGunDvoEwmVFXvd2Bub1SNw5RP1YHJaf""
 
+FactoryHelper::Bitcoin.testnet_address #=> "msHGunDvoEwmVFXvd2Bub1SNw5RP1YHJaf"
 ```
 
 ###FactoryHelper::Business
 ------------------
 
 ```ruby
-
 FactoryHelper::Business.credit_card_number #=> "1228-1221-1221-1431"
 
 FactoryHelper::Business.credit_card_expiry_date #=> <Date: 2015-11-11 ((2457338j,0s,0n),+0s,2299161j)>
 
 FactoryHelper::Business.credit_card_type #=> "visa"
-
 ```
 
 ###FactoryHelper::Code
 --------------
 
 ```ruby
-
 FactoryHelper::Code.isbn #=> "759021701-8"
 
 FactoryHelper::Code.ean #=> "4600051000057"
-
 ```
 
 ###FactoryHelper::Commerce
 ------------------
 
 ```ruby
-
 FactoryHelper::Commerce.color #=> "lavender"
 
 # Optional arguments max=3, fixed_amount=false
@@ -125,14 +117,12 @@ FactoryHelper::Commerce.department(2, true) #=> "Books & Tools"
 FactoryHelper::Commerce.product_name #=> "Practical Granite Shirt"
 
 FactoryHelper::Commerce.price #=> "44.6"
-
 ```
 
 ###FactoryHelper::Company
 -----------------
 
 ```ruby
-
 FactoryHelper::Company.name #=> "Hirthe-Ritchie"
 
 FactoryHelper::Company.suffix #=> "Group"
@@ -149,7 +139,6 @@ FactoryHelper::Company.duns_number #=> "08-341-3736"
 
 # Get a random company logo url in PNG format.
 FactoryHelper::Company.logo #=> "http://pigment.github.com/fake-logos/logos/medium/color/5.png"
-
 ```
 
 ###FactoryHelper::Date
@@ -160,7 +149,7 @@ FactoryHelper::Company.logo #=> "http://pigment.github.com/fake-logos/logos/medi
 FactoryHelper::Date.between(2.days.ago, Date.today) #=> "Wed, 24 Sep 2014"
 
 # Random date in the future (up to maximum of N days)
-FactoryHelper::Date.forward(23) # => "Fri, 03 Oct 2014"
+FactoryHelper::Date.forward(23) #=> "Fri, 03 Oct 2014"
 
 # Random date in the past (up to maximum of N days)
 FactoryHelper::Date.backward(14) #=> "Fri, 19 Sep 2014"
@@ -172,31 +161,24 @@ FactoryHelper::Date.backward(14) #=> "Fri, 19 Sep 2014"
 ```ruby
 # Optional argument name=nil
 FactoryHelper::Internet.email #=> "eliza@mann.net"
-
 FactoryHelper::Internet.email('Nancy') #=> "nancy@terry.biz"
 
 # Optional argument name=nil
 FactoryHelper::Internet.free_email #=> "freddy@gmail.com"
-
 FactoryHelper::Internet.free_email('Nancy') #=> "nancy@yahoo.com"
 
 # Optional argument name=nil
 FactoryHelper::Internet.safe_email #=> "christelle@example.org"
-
 FactoryHelper::Internet.safe_email('Nancy') #=> "nancy@example.net"
 
 # Optional arguments specifier=nil, separators=%w(. _)
 FactoryHelper::Internet.user_name #=> "alexie"
-
 FactoryHelper::Internet.user_name('Nancy') #=> "nancy"
-
 FactoryHelper::Internet.user_name('Nancy Johnson', %w(. _ -)) #=> "johnson-nancy"
 
 # Optional arguments: min_length=8, max_length=16
 FactoryHelper::Internet.password #=> "vg5msvy1uerg7"
-
 FactoryHelper::Internet.password(8) #=> "yfgjik0hgzdqs0"
-
 FactoryHelper::Internet.password(10, 20) #=> "eoc9shwd1hwq4vbgfw"
 
 FactoryHelper::Internet.domain_name #=> "effertz.info"
@@ -224,15 +206,12 @@ FactoryHelper::Internet.url('example.com', '/foobar.html') #=> "http://example.c
 FactoryHelper::Internet.slug #=> "pariatur_laudantium"
 FactoryHelper::Internet.slug('foo bar') #=> "foo.bar"
 FactoryHelper::Internet.slug('foo bar', '-') #=> "foo-bar"
-
-
 ```
 
 ###FactoryHelper::Lorem
 ---------------
 
 ```ruby
-
 FactoryHelper::Lorem.word #=> "repellendus"
 
 # Optional arguments: num=3, supplemental=false
@@ -259,22 +238,20 @@ FactoryHelper::Lorem.sentences(1, true) #=> ["Quis capillus curo ager veritatis 
 # Optional arguments: sentence_count=3, supplemental=false, random_sentences_to_add=3
 FactoryHelper::Lorem.paragraph #=> "Neque dicta enim quasi. Qui corrupti est quisquam. Facere animi quod aut. Qui nulla consequuntur consectetur sapiente."
 FactoryHelper::Lorem.paragraph(2) #=> "Illo qui voluptas. Id sit quaerat enim aut cupiditate voluptates dolorum. Porro necessitatibus numquam dolor quia earum."
-FactoryHelper::Lorem.paragraph(2, true) #=> ""
-FactoryHelper::Lorem.paragraph(2, false, 4) #=> ""
-FactoryHelper::Lorem.paragraph(2, true, 4) #=> ""
+FactoryHelper::Lorem.paragraph(2, true) #=> #<String:0x00000002bad3d8>
+FactoryHelper::Lorem.paragraph(2, false, 4) #=> #<String:0x00000002ba3108>
+FactoryHelper::Lorem.paragraph(2, true, 4) #=> #<String:0x00000002ba5b88>
 
 # Optional arguments: paragraph_count=3, supplemental=false
-FactoryHelper::Lorem.paragraphs #=> ""
-FactoryHelper::Lorem.paragraphs(1) #=> ""
-FactoryHelper::Lorem.paragraphs(1, true) #=> ""
-
+FactoryHelper::Lorem.paragraphs #=> #<Array:0x00000002b95e18: #<String:0x00000002b9f968>, #<String:0x00000002b9cee8>>
+FactoryHelper::Lorem.paragraphs(1) #=> #<Array:0x00000002720388: #<String:0x00000002b8f748>>
+FactoryHelper::Lorem.paragraphs(1, true) #=> #<Array:0x00000002b7fc58: #<String:0x00000002b89758>>
 ```
 
 ###FactoryHelper::Name
 --------------
 
 ```ruby
-
 FactoryHelper::Name.name #=> "Tyshawn Johns Sr."
 
 FactoryHelper::Name.first_name #=> "Kaci"
@@ -286,22 +263,16 @@ FactoryHelper::Name.prefix #=> "Mr."
 FactoryHelper::Name.suffix #=> "IV"
 
 FactoryHelper::Name.title #=> "Legacy Creative Director"
-
 ```
 
 ###FactoryHelper::Avatar
 ----------------
 
 ```ruby
-
 FactoryHelper::Avatar.image #=> "http://robohash.org/sitsequiquia.png?size=300x300"
-
 FactoryHelper::Avatar.image("my-own-slug") #=> "http://robohash.org/my-own-slug.png?size=300x300"
-
 FactoryHelper::Avatar.image("my-own-slug", "50x50") #=> "http://robohash.org/my-own-slug.png?size=50x50"
-
 FactoryHelper::Avatar.image("my-own-slug", "50x50", "jpg") #=> "http://robohash.org/my-own-slug.jpg?size=50x50"
-
 FactoryHelper::Avatar.image("my-own-slug", "50x50", "bmp") #=> "http://robohash.org/my-own-slug.bmp?size=50x50"
 ```
 
@@ -309,12 +280,10 @@ FactoryHelper::Avatar.image("my-own-slug", "50x50", "bmp") #=> "http://robohash.
 ----------------
 
 ```ruby
-
 # Required parameter: digits
 FactoryHelper::Number.number(10) #=> "1968353479"
 
 FactoryHelper::Number.digit #=> "1"
-
 ```
 
 ###FactoryHelper::PhoneNumber
@@ -335,7 +304,6 @@ Phone numbers may be in any of the following formats:
 (Don't let the example output below fool you - any format can be returned at random.)
 
 ```ruby
-
 FactoryHelper::PhoneNumber.phone_number #=> "397.693.1309"
 
 FactoryHelper::PhoneNumber.cell_phone #=> "(186)285-7925"
@@ -356,7 +324,6 @@ FactoryHelper::PhoneNumber.subscriber_number #=> "3873"
 FactoryHelper::PhoneNumber.subscriber_number(2) #=> "39"
 
 FactoryHelper::PhoneNumber.extension #=> "3764"
-
 ```
 
 ###FactoryHelper::Time
@@ -411,47 +378,45 @@ FactoryHelper::Hacker.ingverb #=> "synthesizing"
 -----------------
 
 ```ruby
-
 FactoryHelper::App.name #=> "Treeflex"
 
 FactoryHelper::App.version #=> "0.7.9"
 
 FactoryHelper::App.author #=> "Daphne Swift"
-
 ```
 
 ###FactoryHelper::SlackEmoji
 -----------------
 
+Random Slack Emoji
+
 ```ruby
-
-# Random Slack Emoji from people category
-FactoryHelper::SlackEmoji.people #=> ":sleepy:"
-
-# Random Slack Emoji from nature category
-FactoryHelper::SlackEmoji.nature #=> ":chestnut:"
-
-# Random Slack Emoji from food and drink category
-FactoryHelper::SlackEmoji.food_and_drink #=> ":tangerine:"
-
-# Random Slack Emoji from celebration category
-FactoryHelper::SlackEmoji.celebration #=> ":ribbon:"
-
-# Random Slack Emoji from activity category
-FactoryHelper::SlackEmoji.activity #=> ":performing_arts:"
-
-# Random Slack Emoji from travel and places category
-FactoryHelper::SlackEmoji.travel_and_places #=> ":truck:"
-
-# Random Slack Emoji from objects & symbols category
-FactoryHelper::SlackEmoji.objects_and_symbols #=> ":alarm_clock:"
-
-# Random Slack Emoji from custom category
-FactoryHelper::SlackEmoji.custom #=> ":suspect:"
-
-# Random Slack Emoji from any category
+# random emoji from any category
 FactoryHelper::SlackEmoji.emoji #=> ":last_quarter_moon:"
 
+# from people category
+FactoryHelper::SlackEmoji.people #=> ":sleepy:"
+
+# from nature category
+FactoryHelper::SlackEmoji.nature #=> ":chestnut:"
+
+# from food and drink category
+FactoryHelper::SlackEmoji.food_and_drink #=> ":tangerine:"
+
+# from celebration category
+FactoryHelper::SlackEmoji.celebration #=> ":ribbon:"
+
+# from activity category
+FactoryHelper::SlackEmoji.activity #=> ":performing_arts:"
+
+# from travel and places category
+FactoryHelper::SlackEmoji.travel_and_places #=> ":truck:"
+
+# from objects & symbols category
+FactoryHelper::SlackEmoji.objects_and_symbols #=> ":alarm_clock:"
+
+# from custom category
+FactoryHelper::SlackEmoji.custom #=> ":suspect:"
 ```
 
 Customization
@@ -478,7 +443,6 @@ en-au-ocker:
       # New factory_helper fields
       ocker_first_name: [Bazza, Bluey, Davo, Johno, Shano, Shazza]
       region: [South East Queensland, Wide Bay Burnett, Margaret River, Port Pirie, Gippsland, Elizabeth, Barossa]
-
 ```
 
 Contributing
