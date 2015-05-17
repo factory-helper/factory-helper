@@ -1,6 +1,5 @@
 module FactoryHelper
   class Name < Base
-    EN_LOCALES= [:en, 'en-AU'.to_sym, 'en-au-ocker'.to_sym, 'en-BORK'.to_sym, 'en-CA'.to_sym, 'en-GB'.to_sym, 'en-IND'.to_sym, 'en-NEP'.to_sym, 'en-US'.to_sym]
     flexible :name
 
     class << self

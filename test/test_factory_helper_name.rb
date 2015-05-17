@@ -4,7 +4,7 @@ class TestFactoryHelperName < Test::Unit::TestCase
 
   def setup
     FactoryHelper::Config.locale= nil
-    @genderized_test_locales= [nil, :en, 'en-AU'.to_sym, 'en-au-ocker'.to_sym, 'en-BORK'.to_sym, 'en-CA'.to_sym, 'en-GB'.to_sym, 'en-IND'.to_sym, 'en-NEP'.to_sym, 'en-US'.to_sym]
+    @genderized_test_locales= [nil, :en, :'en-AU', :'en-au-ocker', :'en-CA', :'en-GB', :'en-IND', :'en-NEP', :'en-US']
     @tester = FactoryHelper::Name
   end
 
