@@ -24,10 +24,29 @@ module FactoryHelper
         fetch('name.suffix')
       end
 
+      def female_name
+        include_fallbacks
+        fetch('name.female_name')
+      end
+
+      def male_name
+        include_fallbacks
+        fetch('name.male_name')
+      end
+
       # Generate a buzzword-laden job title
       # Wordlist from http://www.bullshitjob.com/title/
       def title
         fetch('name.title.descriptor') + ' ' + fetch('name.title.level') + ' ' + fetch('name.title.job')
+      end
+
+    private
+
+      def include_fallbacks
+        unless I18n::Backend::Simple.included_modules.include? I18n::Backend::Fallbacks
+          I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+        end
+        I18n.fallbacks= I18n.fallbacks.merge({'en-US'.to_sym => [:en]})
       end
 
     end
