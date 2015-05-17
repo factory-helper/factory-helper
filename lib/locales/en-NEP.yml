@@ -1,7 +1,7 @@
 # Country => Nepal
 # This file is formatted for Nepal.
 
-nep:
+en-NEP:
   factory_helper:
     name:
       first_name: [

@@ -1,5 +1,6 @@
 module FactoryHelper
   class Name < Base
+    EN_LOCALES= [:en, 'en-AU'.to_sym, 'en-au-ocker'.to_sym, 'en-BORK'.to_sym, 'en-CA'.to_sym, 'en-GB'.to_sym, 'en-IND'.to_sym, 'en-NEP'.to_sym, 'en-US'.to_sym]
     flexible :name
 
     class << self
@@ -25,12 +26,12 @@ module FactoryHelper
       end
 
       def female_name
-        include_fallbacks
+        include_en_fallbacks
         fetch('name.female_name')
       end
 
       def male_name
-        include_fallbacks
+        include_en_fallbacks
         fetch('name.male_name')
       end
 
@@ -42,11 +43,10 @@ module FactoryHelper
 
     private
 
-      def include_fallbacks
-        unless I18n::Backend::Simple.included_modules.include? I18n::Backend::Fallbacks
-          I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
-        end
-        I18n.fallbacks= I18n.fallbacks.merge({'en-US'.to_sym => [:en]})
+      def include_en_fallbacks
+        FactoryHelper.send(:require, 'i18n/backend/fallbacks')
+        I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks) unless I18n::Backend::Simple.included_modules.include?(I18n::Backend::Fallbacks)
+        EN_LOCALES.each { |locale| I18n.fallbacks= I18n.fallbacks.merge({locale => [:en]}) }
       end
 
     end

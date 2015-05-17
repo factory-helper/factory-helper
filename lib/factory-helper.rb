@@ -7,9 +7,9 @@ rescue LoadError
 end
 
 require 'i18n'
-require "i18n/backend/fallbacks"
 require 'set' # Fixes a bug in i18n 0.6.11
-
+puts self
+puts self.class
 
 if I18n.respond_to?(:enforce_available_locales=)
   I18n.enforce_available_locales = true
