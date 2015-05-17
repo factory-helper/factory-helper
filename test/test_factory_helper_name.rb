@@ -23,17 +23,17 @@ class TestFactoryHelperName < Test::Unit::TestCase
     assert @tester.suffix.match(/[A-Z][a-z]*\.?/)
   end
 
-  def test_girls_first_name_en_US
+  def test_girls_name_en_US
     FactoryHelper::Config.locale= 'en-US'
     1200.times do
-      assert @tester.girls_first_name.match(/^([A-Z])(\w)*$/)
+      assert @tester.girls_name.match(/^([A-Z])(\w)*$/)
     end
   end
 
-  def test_boys_first_name_en_US
+  def test_boys_name_en_US
     FactoryHelper::Config.locale= 'en-US'
     300.times do
-      assert @tester.boys_first_name.match(/^([A-Z])(\w)*$/)
+      assert @tester.boys_name.match(/^([A-Z])(\w)*$/)
     end
   end
 
