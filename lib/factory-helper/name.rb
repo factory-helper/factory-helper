@@ -26,13 +26,11 @@ module FactoryHelper
       end
 
       def female_name
-        include_en_fallbacks
-        fetch('name.female_name')
+        fallback_locale_to_en { fetch('name.female_name') }
       end
 
       def male_name
-        include_en_fallbacks
-        fetch('name.male_name')
+        fallback_locale_to_en { fetch('name.male_name') }
       end
 
       # Generate a buzzword-laden job title
@@ -43,10 +41,12 @@ module FactoryHelper
 
     private
 
-      def include_en_fallbacks
-        FactoryHelper.send(:require, 'i18n/backend/fallbacks')
-        I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks) unless I18n::Backend::Simple.included_modules.include?(I18n::Backend::Fallbacks)
-        EN_LOCALES.each { |locale| I18n.fallbacks= I18n.fallbacks.merge({locale => [:en]}) }
+      def fallback_locale_to_en &block
+        old_locale= FactoryHelper::Config.locale
+        if old_locale.to_s.include?('en')
+          FactoryHelper::Config.locale= :en
+        end
+        yield.tap { FactoryHelper::Config.locale= old_locale }
       end
 
     end

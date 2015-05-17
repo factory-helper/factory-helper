@@ -8,14 +8,11 @@ end
 
 require 'i18n'
 require 'set' # Fixes a bug in i18n 0.6.11
-puts self
-puts self.class
 
 if I18n.respond_to?(:enforce_available_locales=)
   I18n.enforce_available_locales = true
 end
 I18n.load_path += Dir[File.join(mydir, 'locales', '*.yml')]
-#I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
 
 module FactoryHelper
   class Config
