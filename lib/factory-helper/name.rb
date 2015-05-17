@@ -26,27 +26,17 @@ module FactoryHelper
       end
 
       def female_name
-        fallback_locale_to_en { fetch('name.female_name') }
+        fetch('name.female_name')
       end
 
       def male_name
-        fallback_locale_to_en { fetch('name.male_name') }
+        fetch('name.male_name')
       end
 
       # Generate a buzzword-laden job title
       # Wordlist from http://www.bullshitjob.com/title/
       def title
         fetch('name.title.descriptor') + ' ' + fetch('name.title.level') + ' ' + fetch('name.title.job')
-      end
-
-    private
-
-      def fallback_locale_to_en &block
-        old_locale= FactoryHelper::Config.locale
-        if old_locale.to_s.include?('en')
-          FactoryHelper::Config.locale= :en
-        end
-        yield.tap { FactoryHelper::Config.locale= old_locale }
       end
 
     end

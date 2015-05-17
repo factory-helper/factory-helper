@@ -264,15 +264,8 @@ FactoryHelper::Name.suffix #=> "IV"
 
 FactoryHelper::Name.title #=> "Legacy Creative Director"
 
-# NOTE NOTE
-# For the 'en only' methods below, first you may need to do one of the following:
-FactoryHelper::Config.locale = 'en'
-FactoryHelper::Config.locale = 'en-US'
-FactoryHelper::Config.locale = 'en-GB'
- _et cetera_
-
-# en only
 FactoryHelper::Name.female_name #=> "Marissa"
+
 FactoryHelper::Name.male_name #=> "Brian"
 ```
 
