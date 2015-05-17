@@ -269,8 +269,8 @@ FactoryHelper::Name.title #=> "Legacy Creative Director"
 FactoryHelper::Config.locale = 'en-US'
 
 # US only
-FactoryHelper::Name.girls_first_name #=> "Marissa"
-FactoryHelper::Name.boys_first_name #=> "Brian"
+FactoryHelper::Name.girls_name #=> "Marissa"
+FactoryHelper::Name.boys_name #=> "Brian"
 ```
 
 ###FactoryHelper::Avatar

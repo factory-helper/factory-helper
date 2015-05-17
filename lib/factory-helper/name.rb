@@ -24,14 +24,6 @@ module FactoryHelper
         fetch('name.suffix')
       end
 
-      def boys_first_name
-        fetch('name.boys_first_name')
-      end
-
-      def girls_first_name
-        fetch('name.girls_first_name')
-      end
-
       # Generate a buzzword-laden job title
       # Wordlist from http://www.bullshitjob.com/title/
       def title
