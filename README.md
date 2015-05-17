@@ -265,12 +265,15 @@ FactoryHelper::Name.suffix #=> "IV"
 FactoryHelper::Name.title #=> "Legacy Creative Director"
 
 # NOTE NOTE
-# For the 'US only' methods below, first you must do the following:
+# For the 'en only' methods below, first you may need to do one of the following:
+FactoryHelper::Config.locale = 'en'
 FactoryHelper::Config.locale = 'en-US'
+FactoryHelper::Config.locale = 'en-GB'
+ _et cetera_
 
-# US only
-FactoryHelper::Name.girls_name #=> "Marissa"
-FactoryHelper::Name.boys_name #=> "Brian"
+# en only
+FactoryHelper::Name.female_name #=> "Marissa"
+FactoryHelper::Name.male_name #=> "Brian"
 ```
 
 ###FactoryHelper::Avatar
@@ -316,7 +319,7 @@ FactoryHelper::PhoneNumber.phone_number #=> "397.693.1309"
 
 FactoryHelper::PhoneNumber.cell_phone #=> "(186)285-7925"
 
-# NOTE NOTE
+# NOTE NOTE NOTE NOTE
 # For the 'US only' methods below, first you must do the following:
 FactoryHelper::Config.locale = 'en-US'
 
