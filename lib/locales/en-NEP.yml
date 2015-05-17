@@ -1,3 +1,4 @@
+# coding: utf-8
 # Country => Nepal
 # This file is formatted for Nepal.
 
@@ -35,5 +36,3 @@ en-NEP:
       suffix: ['Pvt Ltd', 'Group', 'Ltd', 'Limited']
     phone_number:
       formats: ['##-#######', '+977-#-#######', '+977########']
-
-
