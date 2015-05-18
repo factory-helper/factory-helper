@@ -4,7 +4,7 @@ class TestFactoryHelperName < Test::Unit::TestCase
 
   def setup
     FactoryHelper::Config.locale= nil
-    @genderized_test_locales= [nil, :en, :'en-AU', :'en-au-ocker', :'en-CA', :'en-GB', :'en-IND', :'en-NEP', :'en-US']
+    @genderized_en_test_locales= [:en, :'en-AU', :'en-au-ocker', :'en-CA', :'en-GB', :'en-IND', :'en-NEP', :'en-US']
     @tester = FactoryHelper::Name
   end
 
@@ -25,24 +25,29 @@ class TestFactoryHelperName < Test::Unit::TestCase
   end
 
   def test_genderized_name_locales
-    @genderized_test_locales.each do |locale|
+    @genderized_en_test_locales.each do |locale|
       FactoryHelper::Config.locale= locale
       test_female_name
       test_male_name
     end
   end
 
+  def test_genderized_name
+    test_female_name
+    test_male_name
+  end
+
 private
 
   def test_female_name
-    96.times do
-      assert @tester.female_name.match(/\A[A-Z][\w']+/)
+    384.times do
+      assert @tester.female_name.match(/\A[A-Z][\w']+\z/)
     end
   end
 
   def test_male_name
-    24.times do
-      assert @tester.male_name.match(/\A[A-Z][\w']+/)
+    96.times do
+      assert @tester.male_name.match(/\A[A-Z][\w']+\z/)
     end
   end
 
