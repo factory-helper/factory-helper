@@ -1,3 +1,4 @@
+# coding: utf-8
 # India formatted data types
 # first_names and last_names courtesy http://www.indianhindunames.com
 
@@ -17,4 +18,4 @@ en-IND:
     company:
       suffix: [Pvt Ltd, Limited, Ltd, and Sons, Corp, Group, Brothers]
     phone_number:
-      formats: ['+91###-###-####', '+91##########', '+91-###-#######'] 
+      formats: ['+91###-###-####', '+91##########', '+91-###-#######']

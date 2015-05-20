@@ -14,7 +14,6 @@ if I18n.respond_to?(:enforce_available_locales=)
 end
 I18n.load_path += Dir[File.join(mydir, 'locales', '*.yml')]
 
-
 module FactoryHelper
   class Config
     @locale = nil

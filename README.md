@@ -263,6 +263,10 @@ FactoryHelper::Name.prefix #=> "Mr."
 FactoryHelper::Name.suffix #=> "IV"
 
 FactoryHelper::Name.title #=> "Legacy Creative Director"
+
+FactoryHelper::Name.female_name #=> "Marissa"
+
+FactoryHelper::Name.male_name #=> "Brian"
 ```
 
 ###FactoryHelper::Avatar
