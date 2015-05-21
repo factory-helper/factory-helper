@@ -1,8 +1,8 @@
 module FactoryHelper
   class String
     def self.random(length= 32)
-      if [Range, Array].include? length.class
-        utf8string length.to_a.sample
+      if length.class.included_modules.include? Enumerable
+        utf8string length.to_enum.to_a.sample
       else
         utf8string length
       end
