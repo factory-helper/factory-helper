@@ -16,6 +16,5 @@ module FactoryHelper
           sample.chr(Encoding::UTF_8)
       end.join.force_encoding("UTF-8")
     end
-
   end
 end
