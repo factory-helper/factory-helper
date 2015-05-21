@@ -20,7 +20,7 @@ RSpec.describe FactoryHelper::String do
 
     describe 'length' do
       specify 'nil' do
-        expect(FactoryHelper::String.random(nil).length).to eq 32
+        expect(FactoryHelper::String.random(nil).length).to eq 0
       end
 
       specify 'integer' do
