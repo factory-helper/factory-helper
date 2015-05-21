@@ -44,7 +44,7 @@ Random UTF-8 string with an optional length argument
 FactoryHelper::String.random #=> "3 뇦\u0017&y\u{3A109}$8^4* 녹豿4좘툢ꔾ쉙6ɉ\uA6F8TN畀챵|\"3쇤Ŵ"
 FactoryHelper::String.random(4) #=> "⼨%0*"
 FactoryHelper::String.random(3..12) #=> "\u{69FDC};秨툫"
-FactoryHelper::String.random[0, 6] #=> "I轤𣴒P溟L"
+FactoryHelper::String.random([0, 6]) #=> "I轤𣴒P溟L"
 ```
 
 
