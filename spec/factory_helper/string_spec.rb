@@ -24,8 +24,8 @@ RSpec.describe FactoryHelper::String do
       end
 
       specify 'integer' do
-        length= [0, -1, 1, rand(500), rand(4096)- 2048].sample
-        expect(FactoryHelper::String.random(length).length).to eq [0, length].max
+        len= [0, -1, 1, rand(500), rand(4096)- 2048].sample
+        expect(FactoryHelper::String.random(len).length).to eq [0, len].max
       end
 
       context 'range' do
