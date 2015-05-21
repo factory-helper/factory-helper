@@ -35,7 +35,7 @@ module FactoryHelper
       private
 
       def get_date_object(date)
-        date = ::Date.parse(date) if date.is_a?(String)
+        date = ::Date.parse(date) if date.is_a?(::String)
         date = date.to_date if date.respond_to?(:to_date)
         date
       end

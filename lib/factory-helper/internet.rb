@@ -15,7 +15,7 @@ module FactoryHelper
       end
 
       def user_name(specifier = nil, separators = %w(. _))
-        if specifier.kind_of? String
+        if specifier.kind_of? ::String
           return specifier.scan(/\w+/).shuffle.join(separators.sample).downcase
         elsif specifier.kind_of? Integer
           tries = 0 # Don't try forever in case we get something like 1_000_000.
