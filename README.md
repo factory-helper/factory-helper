@@ -454,7 +454,7 @@ and you can then override or add elements to suit
 en-au-ocker:
   factory_helper:
     name:
-      # Exiting factory_helper field, new data
+      # Existing factory_helper field, new data
       first_name: [Charlotte, Ava, Chloe, Emily]
 
       # New factory_helper fields
