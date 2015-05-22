@@ -16,6 +16,10 @@ module FactoryHelper
         translate('factory_helper.company.buzzwords').collect {|list| list.sample }.join(' ')
       end
 
+      def buzzword
+        translate('faker.company.buzzwords').flatten.sample
+      end
+
       # When a straight answer won't do, BS to the rescue!
       def bs
         translate('factory_helper.company.bs').collect {|list| list.sample }.join(' ')
