@@ -13,7 +13,7 @@ module FactoryHelper
 
       # Generate a buzzword-laden catch phrase.
       def catch_phrase
-        translate('factory_helper.company.buzzwords').collect {|list| list.sample }.join(' ')
+        translate('factory_helper.company.buzzwords').collect {|list| list.sample(:random => FactoryHelper::Config.seed) }.join(' ')
       end
 
       # When a straight answer won't do, BS to the rescue!
