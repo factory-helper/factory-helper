@@ -17,11 +17,18 @@ I18n.load_path += Dir[File.join(mydir, 'locales', '*.yml')]
 module FactoryHelper
   class Config
     @locale = nil
+    @seed = nil
 
     class << self
       attr_writer :locale
+      attr_writer :seed
+
       def locale
         @locale || I18n.locale
+      end
+
+      def seed
+        @seed || Random.new
       end
     end
   end
