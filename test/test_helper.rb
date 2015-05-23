@@ -12,5 +12,5 @@ I18n.available_locales = Dir[locales_path + '/*'].map do |file|
 end
 I18n.enforce_available_locales = true
 
-# configure Faker
+# configure FactoryHelper
 FactoryHelper::Config.locale = nil
