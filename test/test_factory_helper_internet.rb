@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFactoryHelperInternet < Test::Unit::TestCase
+class TestFactoryHelperInternet < Minitest::Test
 
   def setup
     @tester = FactoryHelper::Internet

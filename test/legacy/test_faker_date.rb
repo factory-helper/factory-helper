@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper.rb')
 
-class TestFakerDate < Test::Unit::TestCase
+class TestFakerDate < Minitest::Test
   def setup
     @tester = Faker::Date
   end

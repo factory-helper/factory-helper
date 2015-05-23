@@ -5,7 +5,7 @@ LoadedFakerYaml = ['en', 'en-BORK'].inject({}) do |h, locale|
   h
 end
 
-class TestFakerLocale < Test::Unit::TestCase
+class TestFakerLocale < Minitest::Test
   def teardown
     Faker::Config.locale = nil
   end

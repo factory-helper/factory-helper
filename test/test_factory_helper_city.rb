@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestFactoryHelperCity < Test::Unit::TestCase
+class TestFactoryHelperCity < Minitest::Test
   def setup
     I18n.reload!
     xx = {

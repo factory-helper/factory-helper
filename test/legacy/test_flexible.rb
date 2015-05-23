@@ -6,7 +6,7 @@ module Faker
   end
 end
 
-class TestFakerFlexible < Test::Unit::TestCase
+class TestFakerFlexible < Minitest::Test
 
   def setup
     I18n.reload!

@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFactoryHelperTime < Test::Unit::TestCase
+class TestFactoryHelperTime < Minitest::Test
   def setup
     @tester      = FactoryHelper::Time
     @time_ranges = FactoryHelper::Time::TIME_RANGES

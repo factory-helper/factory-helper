@@ -1,7 +1,7 @@
 require 'coveralls'
 Coveralls.wear_merged!
 
-require 'test/unit'
+require 'minitest/autorun'
 require 'rubygems'
 require 'yaml'
 YAML::ENGINE.yamler = 'psych' if defined? YAML::ENGINE

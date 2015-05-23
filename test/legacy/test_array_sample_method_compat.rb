@@ -4,7 +4,7 @@ require File.dirname(__FILE__) + '/../test_helper.rb'
 # self-defined Array#sample method in lib/extensions/array and will test whether it
 # behaves as the built-in Array#sample method from Ruby 1.9 or greater.
 # Under Ruby 1.9, they simply use the built-in Array#sample method
-class TestFakerArraySampleMethodCompatibility < Test::Unit::TestCase
+class TestFakerArraySampleMethodCompatibility < Minitest::Test
 
   def test_returns_nil_or_empty_array_with_empty_source
     source = []
