@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper.rb'
 
-class TestFakerStreet < Test::Unit::TestCase
+class TestFakerStreet < Minitest::Test
   def setup
     I18n.reload!
     shire = {

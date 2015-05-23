@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper.rb')
 
-class TesetFakerEnUsLocale < Test::Unit::TestCase
+class TestFakerEnUsLocale < Minitest::Test
   def setup
     Faker::Config.locale = nil
   end
@@ -43,7 +43,7 @@ class TesetFakerEnUsLocale < Test::Unit::TestCase
 
   def test_us_invalid_state_raises_exception
     Faker::Config.locale = 'en-US'
-    assert_raise I18n::MissingTranslationData do Faker::Address.zip_code('NA') end
+    assert_raises I18n::MissingTranslationData do Faker::Address.zip_code('NA') end
   end
 
   def test_us_zip_codes_match_state

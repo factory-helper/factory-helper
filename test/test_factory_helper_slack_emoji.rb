@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFactoryHelperSlackEmoji < Test::Unit::TestCase
+class TestFactoryHelperSlackEmoji < Minitest::Test
 
   def setup
     @tester = FactoryHelper::SlackEmoji

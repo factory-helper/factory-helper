@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestFactoryHelperCode < Test::Unit::TestCase
+class TestFactoryHelperCode < Minitest::Test
   def setup
     @tester = FactoryHelper::Code
   end

@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFactoryHelperTime < Test::Unit::TestCase
+class TestFactoryHelperTime < Minitest::Test
   def setup
     @tester      = FactoryHelper::Time
     @time_ranges = FactoryHelper::Time::TIME_RANGES
@@ -39,7 +39,7 @@ class TestFactoryHelperTime < Test::Unit::TestCase
     from = Date.today
     to   = Date.today + 15
 
-    assert_raise ArgumentError do
+    assert_raises ArgumentError do
       @tester.between(from, to, :invalid_period)
     end
   end

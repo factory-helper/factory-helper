@@ -4,6 +4,6 @@ source "http://rubygems.org"
 gemspec
 
 group :development, :test do
-  gem "test-unit"
+  gem "minitest"
   gem "rake"
 end

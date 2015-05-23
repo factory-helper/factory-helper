@@ -6,7 +6,7 @@ module FactoryHelper
   end
 end
 
-class TestFlexible < Test::Unit::TestCase
+class TestFlexible < Minitest::Test
 
   def setup
     I18n.reload!
@@ -31,7 +31,7 @@ class TestFlexible < Test::Unit::TestCase
 
   def test_raises_no_method_error
     I18n.with_locale(:xx) do
-      assert_raise(NoMethodError) do
+      assert_raises(NoMethodError) do
         FactoryHelper::Foodie.eeew
       end
     end

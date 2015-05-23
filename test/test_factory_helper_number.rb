@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFactoryHelperNumber < Test::Unit::TestCase
+class TestFactoryHelperNumber < Minitest::Test
   def setup
     @tester = FactoryHelper::Number
   end

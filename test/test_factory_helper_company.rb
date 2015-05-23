@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFactoryHelperCompany < Test::Unit::TestCase
+class TestFactoryHelperCompany < Minitest::Test
   def setup
     @tester = FactoryHelper::Company
   end
@@ -14,6 +14,6 @@ class TestFactoryHelperCompany < Test::Unit::TestCase
   end
 
   def test_logo
-	  assert @tester.logo.match(%r{http://pigment.github.io/fake-logos/logos/medium/color/\d+\.png})
+    assert @tester.logo.match(%r{http://pigment.github.io/fake-logos/logos/medium/color/\d+\.png})
   end
 end

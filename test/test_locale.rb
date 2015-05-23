@@ -5,7 +5,7 @@ LoadedYaml = ['en', 'en-BORK'].inject({}) do |h, locale|
   h
 end
 
-class TestLocale < Test::Unit::TestCase
+class TestLocale < Minitest::Test
   def teardown
     FactoryHelper::Config.locale = nil
   end

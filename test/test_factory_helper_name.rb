@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFactoryHelperName < Test::Unit::TestCase
+class TestFactoryHelperName < Minitest::Test
 
   def setup
     FactoryHelper::Config.locale= nil

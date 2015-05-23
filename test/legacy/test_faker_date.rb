@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper.rb')
 
-class TestFakerDate < Test::Unit::TestCase
+class TestFakerDate < Minitest::Test
   def setup
     @tester = Faker::Date
   end
@@ -45,7 +45,7 @@ class TestFakerDate < Test::Unit::TestCase
   end
 
   def test_invalid_date
-    assert_raise ArgumentError do
+    assert_raises ArgumentError do
       @tester.between("9999-99-99", "9999-99-99")
     end
   end

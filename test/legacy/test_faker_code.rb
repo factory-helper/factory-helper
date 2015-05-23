@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper.rb'
 
-class TestFakerCode < Test::Unit::TestCase
+class TestFakerCode < Minitest::Test
   def setup
     @tester = Faker::Code
   end
