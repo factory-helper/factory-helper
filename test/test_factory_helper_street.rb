@@ -2,6 +2,7 @@ require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestFactoryHelperStreet < Minitest::Test
   def setup
+
     I18n.reload!
     shire = {
       :factory_helper => {

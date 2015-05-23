@@ -45,7 +45,7 @@ class TestFakerDate < Minitest::Test
   end
 
   def test_invalid_date
-    assert_raise ArgumentError do
+    assert_raises ArgumentError do
       @tester.between("9999-99-99", "9999-99-99")
     end
   end

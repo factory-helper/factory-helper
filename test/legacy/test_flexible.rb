@@ -31,7 +31,7 @@ class TestFakerFlexible < Minitest::Test
 
   def test_raises_no_method_error
     I18n.with_locale(:xx) do
-      assert_raise(NoMethodError) do
+      assert_raises(NoMethodError) do
         Faker::FoodieFaker.eeew
       end
     end

@@ -49,7 +49,7 @@ class TestFakerArraySampleMethodCompatibility < Minitest::Test
 
   def test_raises_Argument_Error_with_negative_param
     source = ['foo','bar']
-    assert_raise ArgumentError do
+    assert_raises ArgumentError do
       source.sample(-1)
     end
   end

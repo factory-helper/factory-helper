@@ -8,7 +8,7 @@ class TestFactoryHelperBitcoin < Minitest::Test
 
   def test_testnet_address
     assert_match(/\A[mn][1-9A-Za-z]{32,34}\Z/, FactoryHelper::Bitcoin.testnet_address)
-    assert_not_match(/[OIl]/, FactoryHelper::Bitcoin.testnet_address)
+    refute(FactoryHelper::Bitcoin.testnet_address=~ /[OIl]/)
   end
 
 end

@@ -39,7 +39,7 @@ class TestFakerTime < Minitest::Test
     from = Date.today
     to   = Date.today + 15
 
-    assert_raise ArgumentError do
+    assert_raises ArgumentError do
       @tester.between(from, to, :invalid_period)
     end
   end
