@@ -8,7 +8,7 @@ module FactoryHelper
 
       def department(max = 3, fixed_amount = false)
         num = max if fixed_amount
-        num ||= 1 + rand(max)
+        num ||= 1 + FactoryHelper::Config.random.rand(max)
 
         categories = categories(num)
 
@@ -24,7 +24,7 @@ module FactoryHelper
       end
 
       def price
-        random = Random.new
+        random = FactoryHelper::Config.random
         (random.rand(0..100.0) * 100).floor/100.0
       end    
 

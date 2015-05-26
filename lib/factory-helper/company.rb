@@ -13,25 +13,25 @@ module FactoryHelper
 
       # Generate a buzzword-laden catch phrase.
       def catch_phrase
-        translate('factory_helper.company.buzzwords').collect {|list| list.sample(:random => FactoryHelper::Config.seed) }.join(' ')
+        translate('factory_helper.company.buzzwords').collect {|list| list.sample(:random => FactoryHelper::Config.random) }.join(' ')
       end
 
       # When a straight answer won't do, BS to the rescue!
       def bs
-        translate('factory_helper.company.bs').collect {|list| list.sample }.join(' ')
+        translate('factory_helper.company.bs').collect {|list| list.sample(:random => FactoryHelper::Config.random) }.join(' ')
       end
 
       def ein
-        ('%09d' % rand(10 ** 9)).gsub(/(\d\d)(\d\d\d\d\d\d\d)/, '\\1-\\2')
+        ('%09d' % FactoryHelper::Config.random.rand(10 ** 9)).gsub(/(\d\d)(\d\d\d\d\d\d\d)/, '\\1-\\2')
       end
 
       def duns_number
-        ('%09d' % rand(10 ** 9)).gsub(/(\d\d)(\d\d\d)(\d\d\d\d)/, '\\1-\\2-\\3')
+        ('%09d' % FactoryHelper::Config.random.rand(10 ** 9)).gsub(/(\d\d)(\d\d\d)(\d\d\d\d)/, '\\1-\\2-\\3')
       end
 
       # Get a random company logo url in PNG format.
       def logo
-        rand_num = Random.rand(13) + 1
+        rand_num = FactoryHelper::Config.random.rand(13) + 1
         "http://pigment.github.io/fake-logos/logos/medium/color/#{rand_num}.png"
       end
     end

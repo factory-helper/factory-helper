@@ -2,18 +2,18 @@
 module FactoryHelper
   class Hacker < Base
     flexible :hacker
-    
+
     class << self
       def say_something_smart
         phrases.sample
       end
-      
+
       def abbreviation;  fetch('hacker.abbreviation'); end
       def adjective;     fetch('hacker.adjective'); end
       def noun;          fetch('hacker.noun'); end
       def verb;          fetch('hacker.verb'); end
       def ingverb;       fetch('hacker.ingverb'); end
-                    
+
       def phrases
          [ "If we #{verb} the #{noun}, we can get to the #{abbreviation} #{noun} through the #{adjective} #{abbreviation} #{noun}!",
            "We need to #{verb} the #{adjective} #{abbreviation} #{noun}!",
