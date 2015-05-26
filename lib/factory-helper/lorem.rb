@@ -13,7 +13,7 @@ module FactoryHelper
           (supplemental ? translate('factory_helper.lorem.supplemental') : [])
         )
         word_list = word_list * ((resolved_num / word_list.length) + 1)
-        word_list.shuffle[0, resolved_num]
+        word_list.shuffle(:random => FactoryHelper::Config.random)[0, resolved_num]
       end
 
       def character
@@ -23,7 +23,9 @@ module FactoryHelper
       def characters(char_count = 255)
         return '' if char_count.respond_to?(:to_i) && char_count.to_i < 1
         char_count = resolve(char_count)
-        FactoryHelper::Config.random.rand(36**char_count).to_s(36).rjust(char_count, '0').chars.to_a.shuffle.join
+        FactoryHelper::Config.random.rand(36**char_count).to_s(36).
+          rjust(char_count, '0').chars.to_a.
+          shuffle(:random => FactoryHelper::Config.random).join
       end
 
       def sentence(word_count = 4, supplemental = false, random_words_to_add = 6)
