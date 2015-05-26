@@ -5,7 +5,7 @@ module FactoryHelper
 
     class << self
       def say_something_smart
-        phrases.sample
+        phrases.sample(:random => FactoryHelper::Config.random)
       end
 
       def abbreviation;  fetch('hacker.abbreviation'); end
@@ -22,7 +22,7 @@ module FactoryHelper
            "Use the #{adjective} #{abbreviation} #{noun}, then you can #{verb} the #{adjective} #{noun}!",
            "The #{abbreviation} #{noun} is down, #{verb} the #{adjective} #{noun} so we can #{verb} the #{abbreviation} #{noun}!",
            "#{ingverb} the #{noun} won't do anything, we need to #{verb} the #{adjective} #{abbreviation} #{noun}!",
-           "I'll #{verb} the #{adjective} #{abbreviation} #{noun}, that should #{noun} the #{abbreviation} #{noun}!"               
+           "I'll #{verb} the #{adjective} #{abbreviation} #{noun}, that should #{noun} the #{abbreviation} #{noun}!"
            ]
       end
     end
