@@ -18,17 +18,19 @@ module FactoryHelper
   class Config
     @locale = nil
     @seed = nil
+    @random = Random.new
 
     class << self
       attr_writer :locale
-      attr_writer :seed
+      attr_reader :random
 
       def locale
         @locale || I18n.locale
       end
 
-      def seed
-        @seed || Random.new
+      def seed=(seed)
+        @seed = seed
+        @random = seed ? Random.new(seed) : Random.new
       end
     end
   end
@@ -41,11 +43,11 @@ module FactoryHelper
     class << self
       ## make sure numerify results doesn’t start with a zero
       def numerify(number_string)
-        number_string.sub(/#/) { (rand(9)+1).to_s }.gsub(/#/) { rand(10).to_s }
+        number_string.sub(/#/) { (FactoryHelper::Config.random.rand(9)+1).to_s }.gsub(/#/) { FactoryHelper::Config.random.rand(10).to_s }
       end
 
       def letterify(letter_string)
-        letter_string.gsub(/\?/) { ULetters.sample }
+        letter_string.gsub(/\?/) { ULetters.sample(:random => FactoryHelper::Config.random) }
       end
 
       def bothify(string)
@@ -76,21 +78,21 @@ module FactoryHelper
         re.
           gsub(/^\/?\^?/, '').gsub(/\$?\/?$/, '').                                                                      # Ditch the anchors
           gsub(/\{(\d+)\}/, '{\1,\1}').gsub(/\?/, '{0,1}').                                                             # All {2} become {2,2} and ? become {0,1}
-          gsub(/(\[[^\]]+\])\{(\d+),(\d+)\}/) {|match| $1 * Array(Range.new($2.to_i, $3.to_i)).sample }.                # [12]{1,2} becomes [12] or [12][12]
-          gsub(/(\([^\)]+\))\{(\d+),(\d+)\}/) {|match| $1 * Array(Range.new($2.to_i, $3.to_i)).sample }.                # (12|34){1,2} becomes (12|34) or (12|34)(12|34)
-          gsub(/(\\?.)\{(\d+),(\d+)\}/) {|match| $1 * Array(Range.new($2.to_i, $3.to_i)).sample }.                      # A{1,2} becomes A or AA or \d{3} becomes \d\d\d
-          gsub(/\((.*?)\)/) {|match| match.gsub(/[\(\)]/, '').split('|').sample }.                                      # (this|that) becomes 'this' or 'that'
-          gsub(/\[([^\]]+)\]/) {|match| match.gsub(/(\w\-\w)/) {|range| Array(Range.new(*range.split('-'))).sample } }. # All A-Z inside of [] become C (or X, or whatever)
-          gsub(/\[([^\]]+)\]/) {|match| $1.split('').sample }.                                                          # All [ABC] become B (or A or C)
-          gsub('\d') {|match| Numbers.sample }.
-          gsub('\w') {|match| Letters.sample }
+          gsub(/(\[[^\]]+\])\{(\d+),(\d+)\}/) {|match| $1 * Array(Range.new($2.to_i, $3.to_i)).sample(:random => FactoryHelper::Config.random) }.                # [12]{1,2} becomes [12] or [12][12]
+          gsub(/(\([^\)]+\))\{(\d+),(\d+)\}/) {|match| $1 * Array(Range.new($2.to_i, $3.to_i)).sample(:random => FactoryHelper::Config.random) }.                # (12|34){1,2} becomes (12|34) or (12|34)(12|34)
+          gsub(/(\\?.)\{(\d+),(\d+)\}/) {|match| $1 * Array(Range.new($2.to_i, $3.to_i)).sample(:random => FactoryHelper::Config.random) }.                      # A{1,2} becomes A or AA or \d{3} becomes \d\d\d
+          gsub(/\((.*?)\)/) {|match| match.gsub(/[\(\)]/, '').split('|').sample(:random => FactoryHelper::Config.random) }.                                      # (this|that) becomes 'this' or 'that'
+          gsub(/\[([^\]]+)\]/) {|match| match.gsub(/(\w\-\w)/) {|range| Array(Range.new(*range.split('-'))).sample(:random => FactoryHelper::Config.random) } }. # All A-Z inside of [] become C (or X, or whatever)
+          gsub(/\[([^\]]+)\]/) {|match| $1.split('').sample(:random => FactoryHelper::Config.random) }.                                                          # All [ABC] become B (or A or C)
+          gsub('\d') {|match| Numbers.sample(:random => FactoryHelper::Config.random) }.
+          gsub('\w') {|match| Letters.sample(:random => FactoryHelper::Config.random) }
       end
 
       # Helper for the common approach of grabbing a translation
       # with an array of values and selecting one of them.
       def fetch(key)
         fetched = translate("factory_helper.#{key}")
-        fetched = fetched.sample if fetched.respond_to?(:sample)
+        fetched = fetched.sample(:random => FactoryHelper::Config.random) if fetched.respond_to?(:sample)
         if fetched.match(/^\//) and fetched.match(/\/$/) # A regex
           regexify(fetched)
         else
@@ -148,7 +150,7 @@ module FactoryHelper
 
         # Use the alternate form of translate to get a nil rather than a "missing translation" string
         if translation = translate(:factory_helper)[@flexible_key][m]
-          translation.respond_to?(:sample) ? translation.sample : translation
+          translation.respond_to?(:sample) ? translation.sample(:random => FactoryHelper::Config.random) : translation
         else
           super
         end
@@ -157,7 +159,7 @@ module FactoryHelper
       # Generates a random value between the interval
       def rand_in_range(from, to)
         from, to = to, from if to < from
-        Random.new.rand(from..to)
+        FactoryHelper::Config.random.rand(from..to)
       end
     end
   end

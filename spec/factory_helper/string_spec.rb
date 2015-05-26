@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 RSpec.describe FactoryHelper::String do
   describe '.random' do
     specify 'is String' do
