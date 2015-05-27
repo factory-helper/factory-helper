@@ -16,6 +16,10 @@ module FactoryHelper
         translate('factory_helper.company.buzzwords').collect {|list| list.sample(:random => FactoryHelper::Config.random) }.join(' ')
       end
 
+      def buzzword
+        translate('factory_helper.company.buzzwords').flatten.sample(:random => FactoryHelper::Config.random)
+      end
+
       # When a straight answer won't do, BS to the rescue!
       def bs
         translate('factory_helper.company.bs').collect {|list| list.sample(:random => FactoryHelper::Config.random) }.join(' ')
