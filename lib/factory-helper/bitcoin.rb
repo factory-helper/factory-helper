@@ -18,7 +18,7 @@ module FactoryHelper
         address_for(:testnet)
       end
 
-      protected
+      private
 
       def base58(str)
         alphabet = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
