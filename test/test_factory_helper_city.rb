@@ -5,7 +5,7 @@ class TestFactoryHelperCity < Test::Unit::TestCase
     I18n.reload!
     xx = {
       :factory_helper => {
-        :name => {:first_name => ['alice'], :last_name => ['smith']},
+        :name => {:female_first_name => ['alice'], :male_first_name => ['alice'], :last_name => ['smith']},
         :address => {:city_prefix => ['west'], :city_suffix => ['burg']}
       }
     }
