@@ -11,7 +11,7 @@ module FactoryHelper
     }
 
     class << self
-      def between(from, to, period = :all)
+      def between(from=::Time.at(0), to=::Time.now, period = :all)
         super(from, to).to_time + random_time(period)
       end
 

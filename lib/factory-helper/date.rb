@@ -3,7 +3,7 @@ module FactoryHelper
 
     class << self
 
-      def between(from, to)
+      def between(from=::Date.today-10, to=::Date.today+10)
         from = get_date_object(from)
         to   = get_date_object(to)
 

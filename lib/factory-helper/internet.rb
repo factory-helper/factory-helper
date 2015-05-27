@@ -67,17 +67,6 @@ module FactoryHelper
         [ fix_umlauts(domain_word), domain_suffix ].join('.')
       end
 
-      def fix_umlauts(string)
-        string.gsub(/[äöüß]/i) do |match|
-            case match.downcase
-                when "ä" 'ae'
-                when "ö" 'oe'
-                when "ü" 'ue'
-                when "ß" 'ss'
-            end
-        end
-      end
-
       def domain_word
         Company.name.split(' ').first.gsub(/\W/, '').downcase
       end
@@ -123,6 +112,20 @@ module FactoryHelper
         FactoryHelper::Config.random.rand(16 ** 64).to_s(16).rjust(64, '0').
           chars.to_a.shuffle(:random => FactoryHelper::Config.random).join
       end
+
+      private
+
+      def fix_umlauts(string)
+        string.gsub(/[äöüß]/i) do |match|
+            case match.downcase
+                when "ä" 'ae'
+                when "ö" 'oe'
+                when "ü" 'ue'
+                when "ß" 'ss'
+            end
+        end
+      end
+
     end
   end
 end

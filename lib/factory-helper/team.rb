@@ -12,7 +12,7 @@ module FactoryHelper
       end
 
       def state
-        fetch('factory_helper.address.state').titleize
+        fetch('address.state').split(' ').map(&:capitalize).join(' ')
       end
     end
 
