@@ -19,14 +19,14 @@ RSpec.describe 'deterministic output' do
   end
 
   it 'does' do
-    p submodules
-    p module_methods(:String)
-    # FactoryHelper::Config.seed = 99
-    # all_output = []
-    # all_output << submodules.each do |sm|
-    #   module_methods(sm)
-    # end
-    # p all_output
+    FactoryHelper::Config.seed = 99
+    first_output = submodules.map { |sm| module_methods(sm).flatten }
+    FactoryHelper::Config.seed = 99
+    second_output = submodules.map { |sm| module_methods(sm).flatten }
+
+    # expect(first_output).to eq second_output
+    p second_output - (second_output & first_output)
+    p first_output - (second_output & first_output)
   end
 
   private
@@ -34,15 +34,13 @@ RSpec.describe 'deterministic output' do
   def submodules
     submodules = FactoryHelper.constants.delete_if do |sm|
       [:Base, :Config, :VERSION].include?(sm)
-    end
+    end.sort
   end
 
   def module_methods(submodule)
-    submodule_output = []
-    submodule_methods = eval("FactoryHelper::#{submodule}.methods(false)")
-    submodule_methods.each do |method|
-      submodule_output << eval("FactoryHelper::#{submodule}.#{method}")
+    submodule_methods = eval("FactoryHelper::#{submodule}.methods(false)").sort
+    submodule_methods.map do |method|
+      eval("FactoryHelper::#{submodule}.#{method}")
     end
-    return submodule_output
   end
 end
