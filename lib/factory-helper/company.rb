@@ -17,7 +17,7 @@ module FactoryHelper
       end
 
       def buzzword
-        translate('factory_helper.company.buzzwords').flatten.sample
+        translate('factory_helper.company.buzzwords').flatten.sample(:random => FactoryHelper::Config.random)
       end
 
       # When a straight answer won't do, BS to the rescue!
