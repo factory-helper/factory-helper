@@ -27,27 +27,27 @@ class TestFactoryHelperName < Test::Unit::TestCase
   def test_genderized_name_locales
     @genderized_en_test_locales.each do |locale|
       FactoryHelper::Config.locale= locale
-      test_female_name
-      test_male_name
+      test_female_first_name
+      test_male_first_name
     end
   end
 
   def test_genderized_name
-    test_female_name
-    test_male_name
+    test_female_first_name
+    test_male_first_name
   end
 
 private
 
-  def test_female_name
+  def test_female_first_name
     384.times do
-      assert @tester.female_name.match(/\A[A-Z][\w']+\z/)
+      assert @tester.female_first_name.match(/\A[A-Z][\w']+\z/)
     end
   end
 
-  def test_male_name
+  def test_male_first_name
     96.times do
-      assert @tester.male_name.match(/\A[A-Z][\w']+\z/)
+      assert @tester.male_first_name.match(/\A[A-Z][\w']+\z/)
     end
   end
 
