@@ -1,33 +1,31 @@
 RSpec.describe 'deterministic output' do
 
-  it 'hey look, it works throughout!' do
-    FactoryHelper::Config.seed = 99
-    first_output = submodules.map { |sm| module_methods(sm).flatten }
-    FactoryHelper::Config.seed = 99
-    second_output = submodules.map { |sm| module_methods(sm).flatten }
-    loop do
-      FactoryHelper::Config.seed= nil
-      break unless FactoryHelper::Config.random.seed== 99
-    end
-    third_output = submodules.map { |sm| module_methods(sm).flatten }
+  specify 'hey look, it works throughout!' do
+    expect(all_api_output_with_seed(99)).to eq all_api_output_with_seed(99)
 
-    expect(first_output).to eq second_output
-    expect(third_output).not_to eq first_output
-    expect(third_output & first_output).to be_empty
+    expect(all_api_output_with_seed(99)).not_to eq all_api_output_with_seed(98)
+
+    expect(all_api_output_with_seed(99) & all_api_output_with_seed(98)).
+      to be_empty
   end
 
-private
+  private
 
-  def submodules
-    FactoryHelper.constants.delete_if do |sm|
-      [:Base, :Config, :VERSION].include?(sm)
+  def all_api_output_with_seed(seed)
+    FactoryHelper::Config.seed = seed
+    subclasses.map { |sc| subclass_methods(sc).flatten }
+  end
+
+  def subclasses
+    FactoryHelper.constants.delete_if do |sc|
+      [:Base, :Config, :VERSION].include?(sc)
     end.sort
   end
 
-  def module_methods(submodule)
-    submodule_methods = eval("FactoryHelper::#{submodule}.methods(false)").sort
-    submodule_methods.map do |method|
-      eval("FactoryHelper::#{submodule}.#{method}")
+  def subclass_methods(subclass)
+    subclass_methods = eval("FactoryHelper::#{subclass}.methods(false)").sort
+    subclass_methods.map do |method|
+      eval("FactoryHelper::#{subclass}.#{method}")
     end
   end
 end
