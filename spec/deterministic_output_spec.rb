@@ -5,7 +5,10 @@ RSpec.describe 'deterministic output' do
     first_output = submodules.map { |sm| module_methods(sm).flatten }
     FactoryHelper::Config.seed = 99
     second_output = submodules.map { |sm| module_methods(sm).flatten }
-    FactoryHelper::Config.seed = nil
+    loop do
+      FactoryHelper::Config.seed= nil
+      break unless FactoryHelper::Config.random.seed== 99
+    end
     third_output = submodules.map { |sm| module_methods(sm).flatten }
 
     expect(first_output).to eq second_output
@@ -13,7 +16,7 @@ RSpec.describe 'deterministic output' do
     expect(third_output & first_output).to be_empty
   end
 
-  private
+private
 
   def submodules
     FactoryHelper.constants.delete_if do |sm|
