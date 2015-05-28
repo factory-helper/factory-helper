@@ -3,6 +3,8 @@ require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 class TestFactoryHelper < Test::Unit::TestCase
 
   def setup
+    @all_methods= all_methods
+    @first_run= []
   end
 
   def test_numerify
@@ -26,4 +28,42 @@ class TestFactoryHelper < Test::Unit::TestCase
     end
   end
 
+  def test_determinism
+    FactoryHelper::Config.seed= 42
+    @all_methods.freeze.each do |method_name|
+      store method_name
+    end
+    @first_run.freeze
+    FactoryHelper::Config.seed= 42
+    @all_methods.each_index do |index|
+      assert_equal @first_run[index], eval(@all_methods[index])
+    end
+  end
+
+private
+
+  def store method_name
+    begin
+      @first_run << eval(method_name)
+    rescue => e
+      raise "#{method_name} raised #{e}"
+    end
+  end
+
+  def all_methods
+    subclasses.map{ |subclass| subclass_methods(subclass).flatten }.flatten
+  end
+
+  def subclasses
+    FactoryHelper.constants.delete_if do |subclass|
+      [:Base, :Config, :VERSION].include?(subclass)
+    end.sort
+  end
+
+  def subclass_methods(subclass)
+    subclass_methods = eval("FactoryHelper::#{subclass}.methods(false)").sort
+    subclass_methods.map do |method|
+      "FactoryHelper::#{subclass}.#{method}"
+    end
+  end
 end

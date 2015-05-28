@@ -113,15 +113,12 @@ module FactoryHelper
           chars.to_a.shuffle(:random => FactoryHelper::Config.random).join
       end
 
-      def fix_umlauts(string)
-        string.gsub(/[äöüß]/i) do |match|
-            case match.downcase
-                when "ä" 'ae'
-                when "ö" 'oe'
-                when "ü" 'ue'
-                when "ß" 'ss'
-            end
+      def fix_umlauts(string= '')
+        {"ä" => 'ae', "ö" => 'oe', "ü" => 'ue', "ß" => 'ss'}.each do |key, val|
+          string.gsub!(key.downcase, val.downcase)
+          string.gsub!(key.upcase, val.upcase)
         end
+        string
       end
 
     end
