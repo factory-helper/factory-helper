@@ -113,8 +113,6 @@ module FactoryHelper
           chars.to_a.shuffle(:random => FactoryHelper::Config.random).join
       end
 
-      private
-
       def fix_umlauts(string)
         string.gsub(/[äöüß]/i) do |match|
             case match.downcase

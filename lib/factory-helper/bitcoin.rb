@@ -38,9 +38,9 @@ module FactoryHelper
       end
 
       def address_for(network)
-        big_hex = 0xffffffffffffffffffffffffffffffffffffffff
+        hex_160_bit = 0xffffffffffffffffffffffffffffffffffffffff
         version = PROTOCOL_VERSIONS.fetch(network)
-        hash = (FactoryHelper::Config.random.rand * big_hex).ceil.to_s(16)
+        hash = FactoryHelper::Config.random.rand(hex_160_bit).to_s(16)
         packed = version.chr + [hash].pack("H*")
         checksum = Digest::SHA2.digest(Digest::SHA2.digest(packed))[0..3]
         base58(packed + checksum)

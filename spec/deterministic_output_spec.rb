@@ -1,15 +1,16 @@
 RSpec.describe 'deterministic output' do
 
-  specify 'hey look, it works throughout!' do
-    expect(all_api_output_with_seed(99)).to eq all_api_output_with_seed(99)
+  describe 'api' do
+    example 'same seed' do
+      expect(all_api_output_with_seed(99)).to eq all_api_output_with_seed(99)
+    end
 
-    expect(all_api_output_with_seed(99)).not_to eq all_api_output_with_seed(98)
-
-    expect(all_api_output_with_seed(99) & all_api_output_with_seed(98)).
-      to be_empty
+    example 'different seed' do
+      expect(all_api_output_with_seed(99)).not_to eq all_api_output_with_seed(98)
+    end
   end
 
-  private
+private
 
   def all_api_output_with_seed(seed)
     FactoryHelper::Config.seed = seed
