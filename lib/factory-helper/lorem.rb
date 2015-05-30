@@ -20,7 +20,7 @@ module FactoryHelper
         characters(1)
       end
 
-      def characters(char_count = 255)
+      def characters(char_count= 255)
         return '' if char_count.respond_to?(:to_i) && char_count.to_i < 1
         char_count = resolve(char_count)
         FactoryHelper::Config.random.rand(36**char_count).to_s(36).
