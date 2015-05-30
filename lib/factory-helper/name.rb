@@ -9,7 +9,7 @@ module FactoryHelper
       end
 
       def first_name
-        fetch('name.first_name')
+        parse('name.first_name')
       end
 
       def last_name
@@ -24,12 +24,12 @@ module FactoryHelper
         fetch('name.suffix')
       end
 
-      def female_name
-        fetch('name.female_name')
+      def female_first_name
+        fetch('name.female_first_name')
       end
 
-      def male_name
-        fetch('name.male_name')
+      def male_first_name
+        fetch('name.male_first_name')
       end
 
       # Generate a buzzword-laden job title

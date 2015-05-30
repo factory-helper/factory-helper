@@ -102,7 +102,7 @@ module FactoryHelper
       # into method calls that can be used to generate a
       # formatted translation: e.g., "#{first_name} #{last_name}".
       def parse(key)
-        fetch(key).scan(/(\(?)#\{([A-Za-z]+\.)?([^\}]+)\}([^#]+)?/).map {|prefix, kls, meth, etc|
+        fetch(key).scan(/(\(?)#\{([A-Za-z]+\.)?([^\}]+)\}([^#]+)?/).map do |prefix, kls, meth, etc|
           # If the token had a class Prefix (e.g., Name.first_name)
           # grab the constant, otherwise use self
           cls = kls ? FactoryHelper.const_get(kls.chop) : self
@@ -112,12 +112,12 @@ module FactoryHelper
           text = prefix
 
           # If the class has the method, call it, otherwise
-          # fetch the transation (i.e., factory_helper.name.first_name)
+          # fetch the translation (i.e., factory_helper.name.first_name)
           text += cls.respond_to?(meth) ? cls.send(meth) : fetch("#{(kls || self).to_s.split('::').last.downcase}.#{meth.downcase}")
 
           # And tack on spaces, commas, etc. left over in the string
           text += etc.to_s
-        }.join
+        end.join
       end
 
       # Call I18n.translate with our configured locale if no
