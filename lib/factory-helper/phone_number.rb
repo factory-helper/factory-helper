@@ -40,7 +40,7 @@ module FactoryHelper
       # Since extensions can be of variable length, this method taks a length parameter
       def subscriber_number(length = 4)
         begin
-          rand.to_s[2..(1 + length)]
+          FactoryHelper::Config.random.rand.to_s[2..(1 + length)]
         rescue I18n::MissingTranslationData
           nil
         end

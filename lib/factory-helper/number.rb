@@ -1,23 +1,23 @@
 module FactoryHelper
   class Number < Base
     class << self
-      def number(digits)
+      def number(digits=10)
         (1..digits).collect {digit}.join
       end
 
-      def decimal(l_digits, r_digits = 2)
+      def decimal(l_digits=5, r_digits = 2)
         l_d = self.number(l_digits)
         r_d = self.number(r_digits)
         "#{l_d}.#{r_d}"
       end
 
       def digit
-        (rand() * 9).round.to_s
+        (FactoryHelper::Config.random.rand() * 9).round.to_s
       end
 
-      def hexadecimal(digits)
+      def hexadecimal(digits=6)
         hex = ""
-        digits.times { hex += rand(15).to_s(16) }
+        digits.times { hex += FactoryHelper::Config.random.rand(15).to_s(16) }
         hex
       end
 

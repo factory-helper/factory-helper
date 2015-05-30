@@ -11,7 +11,7 @@ module FactoryHelper
     }
 
     class << self
-      def between(from, to, period = :all)
+      def between(from=::Time.at(0), to=::Time.now, period = :all)
         super(from, to).to_time + random_time(period)
       end
 
@@ -31,7 +31,7 @@ module FactoryHelper
 
       def hours(period)
         raise ArgumentError, 'invalid period' unless TIME_RANGES.has_key? period
-        hour_at_period = TIME_RANGES[period].to_a.sample
+        hour_at_period = TIME_RANGES[period].to_a.sample(:random => FactoryHelper::Config.random)
 
         (60 * 60 * hour_at_period)
       end
@@ -41,7 +41,7 @@ module FactoryHelper
       end
 
       def seconds
-        (0..59).to_a.sample
+        (0..59).to_a.sample(:random => FactoryHelper::Config.random)
       end
     end
   end
