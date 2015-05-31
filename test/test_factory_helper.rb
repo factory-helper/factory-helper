@@ -3,8 +3,6 @@ require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 class TestFactoryHelper < Test::Unit::TestCase
 
   def setup
-    @all_methods= all_methods.freeze
-    @first_run= []
   end
 
   def test_numerify
@@ -26,50 +24,5 @@ class TestFactoryHelper < Test::Unit::TestCase
         assert re.match(result = FactoryHelper::Base.regexify(re)), "#{result} is not a match for #{label}"
       end
     end
-  end
-
-  def test_determinism
-    FactoryHelper::Config.seed= 42
-    @all_methods.each do |method_name|
-      store method_name
-    end
-    @first_run.freeze
-    FactoryHelper::Config.seed= 42
-    @all_methods.each_index do |index|
-      assert assert_deterministic_random @first_run[index], @all_methods[index]
-    end
-  end
-
-private
-
-  def store method_name
-    begin
-      @first_run << eval(method_name)
-    rescue => e
-      raise "#{method_name} raised #{e}"
-    end
-  end
-
-  def assert_deterministic_random first, method
-    second= eval(method)
-    (first== second) || raise("#{method} has an entropy leak; use "<< 'FactoryHelper::Config.random.rand')
-  end
-
-  def all_methods
-    subclasses.map do |subclass|
-      subclass_methods(subclass).flatten
-    end.flatten.sort
-  end
-
-  def subclasses
-    FactoryHelper.constants.delete_if do |subclass|
-      [:Base, :Config, :VERSION].include?(subclass)
-    end.sort
-  end
-
-  def subclass_methods(subclass)
-    eval("FactoryHelper::#{subclass}.methods(false)").sort.map do |method|
-      "FactoryHelper::#{subclass}.#{method}"
-    end.sort
   end
 end

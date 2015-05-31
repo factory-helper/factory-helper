@@ -2,17 +2,21 @@ module FactoryHelper
   class String
     class << self
       def random(length= 32)
+          utf8string select_a length
+      end
+
+    private
+
+      def select_a length
         if length.class.included_modules.include? Enumerable
-          utf8string length.to_enum.to_a.sample(:random => FactoryHelper::Config.random)
+          select_a length.to_enum.to_a.sample(:random => FactoryHelper::Config.random)
         else
-          utf8string length
+          length
         end
       end
 
-      private
-
       def utf8string(length)
-        (1..length.to_i).map{ utf8character }.join.force_encoding("UTF-8")
+        (1..length.to_i).map{ utf8character }.join
       end
 
       def utf8character
