@@ -18,7 +18,7 @@ module FactoryHelper
         address_for(:testnet)
       end
 
-      protected
+      private
 
       def base58(str)
         alphabet = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz'
@@ -38,8 +38,9 @@ module FactoryHelper
       end
 
       def address_for(network)
+        hex_160_bit = 0xffffffffffffffffffffffffffffffffffffffff
         version = PROTOCOL_VERSIONS.fetch(network)
-        hash = SecureRandom.hex(20)
+        hash = FactoryHelper::Config.random.rand(hex_160_bit).to_s(16)
         packed = version.chr + [hash].pack("H*")
         checksum = Digest::SHA2.digest(Digest::SHA2.digest(packed))[0..3]
         base58(packed + checksum)

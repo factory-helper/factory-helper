@@ -35,9 +35,29 @@ FactoryHelper::Name.name      #=> "Christophe Bartell"
 FactoryHelper::Internet.email #=> "kirsten.greenholt@corkeryfisher.info"
 ```
 
+###Seeding
+----------
+FactoryHelper now supports seeding of Ruby's pseudo-random number generator
+(PRNG) to provide deterministic output of repeated method calls.
+
+```ruby
+FactoryHelper::Config.seed = 99
+FactoryHelper::Company.bs #=> "utilize real-time functionalities"
+FactoryHelper::Company.bs #=> "orchestrate wireless web-readiness"
+
+FactoryHelper::Config.seed = 99
+FactoryHelper::Company.bs #=> "utilize real-time functionalities"
+FactoryHelper::Company.bs #=> "orchestrate wireless web-readiness"
+
+FactoryHelper::Config.seed = nil # seeds the PRNG with Ruby's default entropy source
+
+FactoryHelper::Config.random.seed #=> 57010835277627224902731113142647237214
+
+FactoryHelper::Company.bs #=> "revolutionize plug-and-play architectures"
+```
+
 ###FactoryHelper::String
 -----------------
-
 Random UTF-8 string with an optional length argument
 
 ```ruby
@@ -297,8 +317,10 @@ FactoryHelper::Avatar.image("my-own-slug", "50x50", "bmp") #=> "http://robohash.
 ----------------
 
 ```ruby
-# Required parameter: digits
+# Optional parameter: digits
 FactoryHelper::Number.number(10) #=> "1968353479"
+
+FactoryHelper::Number.hexadecimal(10) #=> "9b7b26aa4c"
 
 FactoryHelper::Number.digit #=> "1"
 ```
@@ -404,7 +426,6 @@ FactoryHelper::App.author #=> "Daphne Swift"
 
 ###FactoryHelper::SlackEmoji
 -----------------
-
 Random Slack Emoji
 
 ```ruby
@@ -468,7 +489,7 @@ See [CONTRIBUTING.md](https://github.com/factory-helper/factory-helper/blob/mast
 
 Contact
 -------
-Comments and feedback are welcome. Send an email to factory-helper@googlegroups.com.
+Comments and feedback are welcome via GitHub Issues.
 
 License
 -------
