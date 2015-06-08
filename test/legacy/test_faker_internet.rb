@@ -1,3 +1,4 @@
+# coding: utf-8
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper.rb')
 
 class TestFakerInternet < Test::Unit::TestCase
