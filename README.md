@@ -2,15 +2,11 @@ factory-helper
 =====
 **This is currently considered a _pre-release_ version by the authors.**
 
-This gem began life as a fork of [stympy's Faker](https://github.com/stympy/faker).
-While the usage examples below use the `FactoryHelper` name, the `Faker` constant
-remains available, aliased to `FactoryHelper`. Thus, the FactoryHelper gem can
-be used as a drop-in replacement for Faker without requiring any changes to your
-codebase.
+This gem began life as a fork of [stympy's Faker](https://github.com/stympy/faker).  While the usage examples below use the `FactoryHelper` name, the `Faker` constant remains available.  For example, `Faker::Name.name`.
 
 FactoryHelper's purpose is to facilitate software testing by allowing factories to have a solid source of random data with defined characteristics, but the gem can be used for many other purposes as well as in production code.
 
-Its main use-case is slightly different than Faker's and will evolve in that direction, with a primary focus on software testing and not real-looking data. Many new features will also be added, some based on PRs submitted to the original repo.
+Its main use-case is slightly different than Faker's and will evolve in that direction, with a primary focus on software testing and only a secondary focus on real-looking data. New features will also be added, some based on PRs submitted to the original repo, some based on things we've needed ourselves, and some based on incoming pull requests.
 
 [![Build Status](https://travis-ci.org/factory-helper/factory-helper.svg)](https://travis-ci.org/factory-helper/factory-helper)
 [![Coverage Status](https://coveralls.io/repos/factory-helper/factory-helper/badge.svg)](https://coveralls.io/r/factory-helper/factory-helper)
