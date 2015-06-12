@@ -314,7 +314,8 @@ FactoryHelper::Avatar.image("my-own-slug", "50x50", "bmp") #=> "http://robohash.
 
 ```ruby
 # Optional parameter: digits
-FactoryHelper::Number.number(10) #=> "1968353479"
+FactoryHelper::Number.number(10)      #=> "1968353479"
+FactoryHelper::Number.number(10).to_i #=>  1968353479
 
 FactoryHelper::Number.hexadecimal(10) #=> "9b7b26aa4c"
 
