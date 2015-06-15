@@ -2,7 +2,7 @@
 en-US:
   factory_helper:
     internet:
-      domain_suffix: [com, us, biz, info, name, net, org]
+      domain_suffix: [com, us, biz, info, name, net, org, io, co]
     address:
       default_country: [United States, United States of America, USA]
       postcode_by_state:
