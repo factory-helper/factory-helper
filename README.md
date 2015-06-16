@@ -64,6 +64,20 @@ FactoryHelper::String.random([0, 6]) #=> "I轤𣴒P溟L"
 ```
 
 
+###FactoryHelper::MySQL
+-----------------
+Generates integers for a factory per the MySQL Numeric datatypes.
+
+```ruby
+FactoryHelper::MySQL.integer #=> 1319
+FactoryHelper::MySQL.tinyint #=> 42
+FactoryHelper::MySQL.bigint #=> 9223372036854775807
+FactoryHelper::MySQL.int(unsigned: true) #=> 3652587672
+FactoryHelper::MySQL.smallint(min: 0, max: 1319) #=> 998
+FactoryHelper::MySQL.mediumint #=> 7456451
+```
+
+
 ###FactoryHelper::Address
 -----------------
 
