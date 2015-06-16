@@ -55,11 +55,18 @@ module FactoryHelper
       end
 
       def int_sanitize opt
-        opt.tap { raise 'Argument list must be a hash.' unless opt.kind_of? Hash
+        check_bounds opt.tap { raise 'Argument list must be a hash.' unless opt.kind_of? Hash
         raise 'Must specify a min and a max, or neither.' if !!opt[:min]^ !!opt[:max]
         raise '`:min` must reference an integer' if opt[:min]&& !opt[:min].kind_of?(Integer)
         raise '`:max` must reference an integer' if opt[:max]&& !opt[:max].kind_of?(Integer)
-        raise 'Minimum must be less than Maximum' if opt[:min]&& opt[:max]&& (opt[:max]< opt[:min]) }
+        raise "Minimum(#{opt[:min]}) must be less than Maximum(#{opt[:max]})" if opt[:min]&& opt[:max]&& (opt[:max]< opt[:min]) }
+      end
+
+      def check_bounds opt
+        if opt[:unsigned]&& opt[:min]&& opt[:min]< 0
+          raise "Minimum(#{opt[:min]}) must not be less than zero when unsigned"
+        end
+        opt
       end
     end
   end

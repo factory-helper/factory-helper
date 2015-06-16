@@ -42,60 +42,82 @@ RSpec.describe FactoryHelper::MySQL do
       expect(0.. 4294967295).to include FactoryHelper::MySQL.int(:unsigned => true)
     end
 
-    %w[tinyint smallint mediumint integer bigint int].each do |method_name|
+    %w[tinyint smallint mediumint integer bigint int].each do |int_name|
       ['', ':unsigned => true'].each do |unsigned|
         eval %Q[
-          describe '.#{method_name}' do
+          describe '.#{int_name}' do
             context '#{unsigned.empty? ? 'signed' : 'unsigned'}' do
               it 'is an integer' do
-                expect(FactoryHelper::MySQL.#{method_name}(#{unsigned})
+                expect(FactoryHelper::MySQL.#{int_name}(#{unsigned})
                 ).to be_a_kind_of Integer
               end
 
               it 'accepts minimum and maximum' do
                 expect(100.. 125).to include(
-                  FactoryHelper::MySQL.#{method_name}(:min => 100, :max => 125, #{unsigned})
+                  FactoryHelper::MySQL.#{int_name}(:min => 100, :max => 125, #{unsigned})
                 )
               end
 
               it 'rejects only a minimum' do
                 expect{
-                  FactoryHelper::MySQL.#{method_name}(:min => 100, #{unsigned})
+                  FactoryHelper::MySQL.#{int_name}(:min => 100, #{unsigned})
                 }.to raise_error
               end
 
               it 'rejects only a maximum' do
                 expect{
-                  FactoryHelper::MySQL.#{method_name}(:max => 100, #{unsigned})
+                  FactoryHelper::MySQL.#{int_name}(:max => 100, #{unsigned})
                 }.to raise_error
               end
 
               it 'accepts no min/max' do
-                expect{FactoryHelper::MySQL.#{method_name}(#{unsigned})
+                expect{FactoryHelper::MySQL.#{int_name}(#{unsigned})
                 }.to_not raise_error
               end
 
               it 'rejects non-integer minimum' do
                 expect{
-                  FactoryHelper::MySQL.#{method_name}(:min => 1.25, :max => 125, #{unsigned})
+                  FactoryHelper::MySQL.#{int_name}(:min => 1.25, :max => 125, #{unsigned})
                 }.to raise_error
               end
 
               it 'rejects non-integer maximum' do
                 expect{
-                  FactoryHelper::MySQL.#{method_name}(:min => 125, :max => 1.25, #{unsigned})
+                  FactoryHelper::MySQL.#{int_name}(:min => 125, :max => 1.25, #{unsigned})
                 }.to raise_error
               end
 
               it 'rejects min/max mismatch' do
                 expect{
-                  FactoryHelper::MySQL.#{method_name}(:min => 125, :max => 100, #{unsigned})
+                  FactoryHelper::MySQL.#{int_name}(:min => 125, :max => 100, #{unsigned})
                 }.to raise_error
               end
             end
           end
         ]
       end
+
+      eval %Q[
+        describe 'conflicting arguments' do
+          specify 'bounds negative when unsigned' do
+            expect{
+              FactoryHelper::MySQL.#{int_name}(min: -100, max: -3, unsigned: true)
+            }.to raise_error
+          end
+
+          specify 'negative maximum when unsigned' do
+            expect{
+              FactoryHelper::MySQL.#{int_name}(min: 100, max: -3, unsigned: true)
+            }.to raise_error
+          end
+
+          specify 'unsigned minimum below zero' do
+            expect{
+              FactoryHelper::MySQL.#{int_name}(min: -100, max: 3, unsigned: true)
+            }.to raise_error
+          end
+        end
+      ]
     end
   end
 end
