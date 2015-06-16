@@ -98,7 +98,7 @@ RSpec.describe FactoryHelper::MySQL do
       end
 
       eval %Q[
-        describe 'conflicting arguments' do
+        describe ".#{int_name} conflicting arguments" do
           specify 'bounds negative when unsigned' do
             expect{
               FactoryHelper::MySQL.#{int_name}(min: -100, max: -3, unsigned: true)
