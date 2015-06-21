@@ -69,10 +69,10 @@ FactoryHelper::String.random([0, 6]) #=> "I轤𣴒P溟L"
 Generates values for a factory per the MySQL datatypes.  Accepts options unsigned, min, max.
 
 ```ruby
-FactoryHelper::MySQL.integer #=> 1729
+FactoryHelper::MySQL.integer #=> 1729  (int & integer are equivalent)
 FactoryHelper::MySQL.tinyint #=> 42
 FactoryHelper::MySQL.bigint #=> 9223372036854775807
-FactoryHelper::MySQL.smallint(unsigned: true) #=> 3652587672
+FactoryHelper::MySQL.smallint(unsigned: true) #=> 55777
 FactoryHelper::MySQL.int(min: 0, max: 1319) #=> 998
 FactoryHelper::MySQL.mediumint #=> 7456451
 ```

@@ -61,13 +61,13 @@ RSpec.describe FactoryHelper::MySQL do
               it 'rejects only a minimum' do
                 expect{
                   FactoryHelper::MySQL.#{int_name}(:min => 100, #{unsigned})
-                }.to raise_error
+                }.to raise_error FactoryHelper::MySQL::ArgumentError
               end
 
               it 'rejects only a maximum' do
                 expect{
                   FactoryHelper::MySQL.#{int_name}(:max => 100, #{unsigned})
-                }.to raise_error
+                }.to raise_error FactoryHelper::MySQL::ArgumentError
               end
 
               it 'accepts no min/max' do
@@ -78,19 +78,19 @@ RSpec.describe FactoryHelper::MySQL do
               it 'rejects non-integer minimum' do
                 expect{
                   FactoryHelper::MySQL.#{int_name}(:min => 1.25, :max => 125, #{unsigned})
-                }.to raise_error
+                }.to raise_error FactoryHelper::MySQL::ArgumentError
               end
 
               it 'rejects non-integer maximum' do
                 expect{
                   FactoryHelper::MySQL.#{int_name}(:min => 125, :max => 1.25, #{unsigned})
-                }.to raise_error
+                }.to raise_error FactoryHelper::MySQL::ArgumentError
               end
 
               it 'rejects min/max mismatch' do
                 expect{
                   FactoryHelper::MySQL.#{int_name}(:min => 125, :max => 100, #{unsigned})
-                }.to raise_error
+                }.to raise_error FactoryHelper::MySQL::ArgumentError
               end
             end
           end
@@ -102,19 +102,19 @@ RSpec.describe FactoryHelper::MySQL do
           specify 'bounds negative when unsigned' do
             expect{
               FactoryHelper::MySQL.#{int_name}(min: -100, max: -3, unsigned: true)
-            }.to raise_error
+            }.to raise_error FactoryHelper::MySQL::ArgumentError
           end
 
           specify 'negative maximum when unsigned' do
             expect{
               FactoryHelper::MySQL.#{int_name}(min: 100, max: -3, unsigned: true)
-            }.to raise_error
+            }.to raise_error FactoryHelper::MySQL::ArgumentError
           end
 
           specify 'unsigned minimum below zero' do
             expect{
               FactoryHelper::MySQL.#{int_name}(min: -100, max: 3, unsigned: true)
-            }.to raise_error
+            }.to raise_error FactoryHelper::MySQL::ArgumentError
           end
         end
       ]
