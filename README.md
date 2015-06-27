@@ -33,23 +33,20 @@ FactoryHelper::Internet.email #=> "kirsten.greenholt@corkeryfisher.info"
 
 ###Seeding
 ----------
-FactoryHelper now supports seeding of Ruby's pseudo-random number generator
+FactoryHelper now supports seeding of its pseudo-random number generator
 (PRNG) to provide deterministic output of repeated method calls.
 
 ```ruby
-FactoryHelper::Config.seed = 99
-FactoryHelper::Company.bs #=> "utilize real-time functionalities"
-FactoryHelper::Company.bs #=> "orchestrate wireless web-readiness"
+FactoryHelper::Config.seed = 42
+FactoryHelper::Company.bs #=> "seize collaborative mindshare"
+FactoryHelper::Company.bs #=> "engage strategic platforms"
+FactoryHelper::Config.seed = 42
+FactoryHelper::Company.bs #=> "seize collaborative mindshare"
+FactoryHelper::Company.bs #=> "engage strategic platforms"
 
-FactoryHelper::Config.seed = 99
-FactoryHelper::Company.bs #=> "utilize real-time functionalities"
-FactoryHelper::Company.bs #=> "orchestrate wireless web-readiness"
-
-FactoryHelper::Config.seed = nil # seeds the PRNG with Ruby's default entropy source
-
-FactoryHelper::Config.random.seed #=> 57010835277627224902731113142647237214
-
-FactoryHelper::Company.bs #=> "revolutionize plug-and-play architectures"
+FactoryHelper::Config.seed = nil # seeds the PRNG
+FactoryHelper::Config.seed #=> 6263681755117030645311740483944653976248826274740079170131
+FactoryHelper::Company.bs #=> "cultivate viral synergies"
 ```
 
 ###FactoryHelper::String
