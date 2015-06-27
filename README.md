@@ -54,13 +54,27 @@ FactoryHelper::Company.bs #=> "revolutionize plug-and-play architectures"
 
 ###FactoryHelper::String
 -----------------
-Random UTF-8 string with an optional length argument
+Random UTF-8 string with an optional length argument.
 
 ```ruby
 FactoryHelper::String.random #=> "3 뇦\u0017&y\u{3A109}$8^4* 녹豿4좘툢ꔾ쉙6ɉ\uA6F8TN畀챵|\"3쇤Ŵ"
 FactoryHelper::String.random(4) #=> "⼨%0*"
 FactoryHelper::String.random(3..12) #=> "\u{69FDC};秨툫"
 FactoryHelper::String.random([0, 6]) #=> "I轤𣴒P溟L"
+```
+
+
+###FactoryHelper::MySQL
+-----------------
+Generates values for a factory per the MySQL datatypes.  Accepts options unsigned, min, max.
+
+```ruby
+FactoryHelper::MySQL.integer #=> 1729  (int & integer are equivalent)
+FactoryHelper::MySQL.tinyint #=> 42
+FactoryHelper::MySQL.bigint #=> 9223372036854775807
+FactoryHelper::MySQL.smallint(unsigned: true) #=> 55777
+FactoryHelper::MySQL.int(min: 0, max: 1319) #=> 998
+FactoryHelper::MySQL.mediumint #=> 7456451
 ```
 
 
