@@ -3,24 +3,24 @@ module FactoryHelper
   class MySQL < Base
     INTEGERS= {
       :tinyint => {
-        false => {:min => -128, :max => 127,},
-        true => {:min => 0, :max => 255,},
+        false => {:min => -128, :max => 127},
+        true => {:min => 0, :max => 255},
       },
       :smallint => {
-        false => {:min => -32768, :max => 32767,},
-        true => {:min => 0, :max => 65535,},
+        false => {:min => -32768, :max => 32767},
+        true => {:min => 0, :max => 65535},
       },
       :mediumint => {
-        false => {:min => -8388608, :max => 8388607,},
-        true => {:min => 0, :max => 16777215,},
+        false => {:min => -8388608, :max => 8388607},
+        true => {:min => 0, :max => 16777215},
       },
       :integer => {
-        false => {:min => -2147483648, :max => 2147483647,},
-        true => {:min => 0, :max => 4294967295,},
+        false => {:min => -2147483648, :max => 2147483647},
+        true => {:min => 0, :max => 4294967295},
       },
       :bigint => {
-        false => {:min => -9223372036854775808, :max => 9223372036854775807,},
-        true => {:min => 0, :max => 18446744073709551615,},
+        false => {:min => -9223372036854775808, :max => 9223372036854775807},
+        true => {:min => 0, :max => 18446744073709551615},
       },
     }
     ArgumentError= Class.new(StandardError)
