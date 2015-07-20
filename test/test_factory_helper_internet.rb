@@ -11,6 +11,15 @@ class TestFactoryHelperInternet < Test::Unit::TestCase
     assert @tester.email.match(/.+@.+\.\w+/)
   end
 
+  def test_localized_email
+    I18n.available_locales.each do |locale|
+      I18n.with_locale(locale) do
+        email= @tester.email
+        raise "#{locale} localized email: #{email}" unless email.match(/.+@.+\.\w+/)
+      end
+    end
+  end
+
   def test_free_email
     assert @tester.free_email.match(/.+@(gmail|hotmail|yahoo)\.com/)
   end

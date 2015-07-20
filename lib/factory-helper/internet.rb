@@ -3,7 +3,7 @@ module FactoryHelper
   class Internet < Base
     class << self
       def email(name = nil)
-        [ user_name(name), domain_name ].join('@')
+        [ email_word, domain_name ].join('@')
       end
 
       def free_email(name = nil)
@@ -67,10 +67,6 @@ module FactoryHelper
         [ fix_umlauts(domain_word), domain_suffix ].join('.')
       end
 
-      def domain_word
-        Company.name.split(' ').first.gsub(/\W/, '').downcase
-      end
-
       def domain_suffix
         fetch('internet.domain_suffix')
       end
@@ -121,6 +117,19 @@ module FactoryHelper
         string
       end
 
+      def domain_word
+        Lorem.word
+      end
+
+    private
+
+      def email_word
+        name= Name.first_name.downcase
+        return name unless name.empty?
+        I18n.with_locale('en') do
+          return Name.first_name.downcase
+        end
+      end
     end
   end
 end
