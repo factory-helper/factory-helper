@@ -1,6 +1,6 @@
 RSpec.describe FactoryHelper::Config do
   describe 'PRNG' do
-    specify '.seed= returns new seed' do
+    specify '.set_seed returns new seed' do
       expect(FactoryHelper::Config.set_seed nil).to eq FactoryHelper::Config.seed
     end
 

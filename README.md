@@ -37,14 +37,14 @@ FactoryHelper now supports seeding of its pseudo-random number generator
 (PRNG) to provide deterministic output of repeated method calls.
 
 ```ruby
-FactoryHelper::Config.seed = 42
+FactoryHelper::Config.set_seed 42
 FactoryHelper::Company.bs #=> "seize collaborative mindshare"
 FactoryHelper::Company.bs #=> "engage strategic platforms"
-FactoryHelper::Config.seed = 42
+FactoryHelper::Config.set_seed 42
 FactoryHelper::Company.bs #=> "seize collaborative mindshare"
 FactoryHelper::Company.bs #=> "engage strategic platforms"
 
-FactoryHelper::Config.seed = nil # seeds the PRNG
+FactoryHelper::Config.set_seed nil # seeds the PRNG
 FactoryHelper::Config.seed #=> 6263681755117030645311740483944653976248826274740079170131
 FactoryHelper::Company.bs #=> "cultivate viral synergies"
 ```
