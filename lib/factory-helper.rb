@@ -29,7 +29,7 @@ module FactoryHelper
         @random.seed
       end
 
-      def seed= (seed)
+      def set_seed (seed)
         if seed
           @random= Random.new(seed)
         else
@@ -40,7 +40,7 @@ module FactoryHelper
     end
 
     self.locale= nil
-    self.seed= nil
+    self.set_seed nil
   end
 
   class Base
