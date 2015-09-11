@@ -1,10 +1,8 @@
 factory-helper
 =====
-**This is currently considered a _pre-release_ version by the authors.**
-
 This gem began life as a fork of [stympy's Faker](https://github.com/stympy/faker).  While the usage examples below use the `FactoryHelper` name, the `Faker` constant remains available.  For example, `Faker::Name.name`.
 
-FactoryHelper's purpose is to facilitate software testing by allowing factories to have a solid source of random data with defined characteristics, but the gem can be used for many other purposes as well as in production code.
+**FactoryHelper's purpose is to facilitate software testing** by allowing factories to have a solid source of random data with defined characteristics, but the gem can be used for many other purposes as well as in production code.
 
 Its main use-case is slightly different than Faker's and will evolve in that direction, with a primary focus on software testing and only a secondary focus on real-looking data. New features will also be added, some based on PRs submitted to the original repo, some based on things we've needed ourselves, and some based on incoming pull requests.
 
@@ -20,7 +18,7 @@ gem install factory-helper
 
 or in your Gemfile
 ```ruby
-gem 'factory-helper'
+gem 'factory-helper', '~> 1.7'
 ```
 
 ##Usage
@@ -84,41 +82,23 @@ FactoryHelper::MySQL.mediumint #=> 7456451
 
 ```ruby
 FactoryHelper::Address.city #=> "Imogeneborough"
-
 FactoryHelper::Address.street_name #=> "Larkin Fork"
-
 FactoryHelper::Address.street_address #=> "282 Kevin Brook"
-
 FactoryHelper::Address.secondary_address #=> "Apt. 672"
-
 FactoryHelper::Address.building_number #=> "7304"
-
 FactoryHelper::Address.zip_code #=> "58517"
-
 FactoryHelper::Address.zip #=> "58517"
-
 FactoryHelper::Address.postcode #=> "58517"
-
 FactoryHelper::Address.time_zone #=> "Asia/Yakutsk"
-
 FactoryHelper::Address.street_suffix #=> "Street"
-
 FactoryHelper::Address.city_suffix #=> "fort"
-
 FactoryHelper::Address.city_prefix #=> "Lake"
-
 FactoryHelper::Address.state_abbr #=> "AP"
-
 FactoryHelper::Address.state #=> "California"
-
 FactoryHelper::Address.state_abbr #=> "AP"
-
 FactoryHelper::Address.country #=> "French Guiana"
-
 FactoryHelper::Address.country_code #=> "IT"
-
 FactoryHelper::Address.latitude #=> "-58.17256227443719"
-
 FactoryHelper::Address.longitude #=> "-156.65548382095133"
 ```
 
@@ -127,7 +107,6 @@ FactoryHelper::Address.longitude #=> "-156.65548382095133"
 
 ```ruby
 FactoryHelper::Bitcoin.address #=> "1HUoGjmgChmnxxYhz87YytV4gVjfPaExmh"
-
 FactoryHelper::Bitcoin.testnet_address #=> "msHGunDvoEwmVFXvd2Bub1SNw5RP1YHJaf"
 ```
 
@@ -136,9 +115,7 @@ FactoryHelper::Bitcoin.testnet_address #=> "msHGunDvoEwmVFXvd2Bub1SNw5RP1YHJaf"
 
 ```ruby
 FactoryHelper::Business.credit_card_number #=> "1228-1221-1221-1431"
-
 FactoryHelper::Business.credit_card_expiry_date #=> <Date: 2015-11-11 ((2457338j,0s,0n),+0s,2299161j)>
-
 FactoryHelper::Business.credit_card_type #=> "visa"
 ```
 
@@ -147,7 +124,6 @@ FactoryHelper::Business.credit_card_type #=> "visa"
 
 ```ruby
 FactoryHelper::Code.isbn #=> "759021701-8"
-
 FactoryHelper::Code.ean #=> "4600051000057"
 ```
 
@@ -301,19 +277,12 @@ FactoryHelper::Lorem.paragraphs(1, true) #=> #<Array:0x00000002b7fc58: #<String:
 
 ```ruby
 FactoryHelper::Name.name #=> "Tyshawn Johns Sr."
-
 FactoryHelper::Name.first_name #=> "Kaci"
-
 FactoryHelper::Name.last_name #=> "Ernser"
-
 FactoryHelper::Name.prefix #=> "Mr."
-
 FactoryHelper::Name.suffix #=> "IV"
-
 FactoryHelper::Name.title #=> "Legacy Creative Director"
-
 FactoryHelper::Name.female_name #=> "Marissa"
-
 FactoryHelper::Name.male_name #=> "Brian"
 ```
 
@@ -436,9 +405,7 @@ FactoryHelper::Hacker.ingverb #=> "synthesizing"
 
 ```ruby
 FactoryHelper::App.name #=> "Treeflex"
-
 FactoryHelper::App.version #=> "0.7.9"
-
 FactoryHelper::App.author #=> "Daphne Swift"
 ```
 
