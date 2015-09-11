@@ -9,7 +9,7 @@ to know that you have a clean slate: `bundle && rake`
 require no new tests. If you are adding functionality or fixing a bug, we need
 a test!
 
-4. Make the test pass.
+4. Make the test pass. `rvm use 1.9.3 && rake`​ and ​`rvm use 2.2.3 && rake`​
 
 5. Push to your fork and submit a pull request.
 
