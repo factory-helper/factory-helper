@@ -15,7 +15,7 @@ class TestFactoryHelperInternet < Test::Unit::TestCase
     I18n.available_locales.each do |locale|
       I18n.with_locale(locale) do
         email= @tester.email
-        raise "#{locale} localized email: #{email}" unless email.match(/.+@.+\.\w+/)
+        raise "#{locale} localized email: #{email}" unless email.match(/.+@.+\..+/)
       end
     end
   end
