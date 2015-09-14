@@ -2,7 +2,7 @@ module FactoryHelper
   class String
     class << self
       def random(length= 32)
-          utf8string select_a length
+        utf8string select_a length
       end
 
     private
@@ -16,11 +16,22 @@ module FactoryHelper
       end
 
       def utf8string(length)
-        (1..length.to_i).map{ space_or_utf8_char }.join
+        ratio= char_space_ratio
+        (1..length.to_i).map do
+          space_or_utf8_char ratio
+        end.join
       end
 
-      def space_or_utf8_char
-        [" ", [utf8character]*5].flatten.sample(:random => FactoryHelper::Config.random)
+      def space_or_utf8_char ratio
+        [
+          32.chr(Encoding::UTF_8), [utf8character]* ratio
+        ].flatten.sample(:random => FactoryHelper::Config.random)
+      end
+
+      def char_space_ratio
+        [
+          2, [3]*5, [5]*17, [7]*11, 11, 191,
+        ].flatten.sample(:random => FactoryHelper::Config.random)
       end
 
       def utf8character
