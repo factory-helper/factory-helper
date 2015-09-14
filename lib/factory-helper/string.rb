@@ -16,7 +16,11 @@ module FactoryHelper
       end
 
       def utf8string(length)
-        (1..length.to_i).map{ utf8character }.join
+        (1..length.to_i).map{ space_or_utf8_char }.join
+      end
+
+      def space_or_utf8_char
+        [" ", [utf8character]*5].flatten.sample(:random => FactoryHelper::Config.random)
       end
 
       def utf8character
