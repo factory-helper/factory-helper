@@ -1,9 +1,5 @@
 RSpec.describe FactoryHelper::Config do
   describe 'PRNG' do
-    specify '.seed= returns new seed' do
-      expect(FactoryHelper::Config.seed= nil).to eq FactoryHelper::Config.seed
-    end
-
     specify '.random.seed' do
       expect(FactoryHelper::Config.random.seed).to eq FactoryHelper::Config.seed
     end

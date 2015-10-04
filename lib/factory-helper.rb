@@ -29,18 +29,14 @@ module FactoryHelper
         @random.seed
       end
 
-      def set_seed (seed)
-        if seed
-          @random= Random.new(seed)
-        else
-          @random= Random.new(Random.new_seed.to_i* Kernel.rand(18446744073709551615).to_i)
-        end
-        return self.seed
+      def seed= new_seed
+        new_seed||= Random.new_seed.to_i* Kernel.rand(18446744073709551615).to_i
+        @random= Random.new(new_seed)
       end
     end
 
     self.locale= nil
-    self.set_seed nil
+    self.seed= nil
   end
 
   class Base

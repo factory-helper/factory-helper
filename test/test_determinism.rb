@@ -8,12 +8,12 @@ class TestDeterminism < Test::Unit::TestCase
   end
 
   def test_determinism
-    FactoryHelper::Config.set_seed 42
+    FactoryHelper::Config.seed= 42
     @all_methods.each_index do |index|
       store_result @all_methods[index]
     end
     @first_run.freeze
-    FactoryHelper::Config.set_seed 42
+    FactoryHelper::Config.seed= 42
     @all_methods.each_index do |index|
       assert deterministic_random? @first_run[index], @all_methods[index]
     end
