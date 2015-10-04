@@ -17,9 +17,6 @@ I18n.load_path += Dir[File.join(mydir, 'locales', '*.yml')]
 
 module FactoryHelper
   class Config
-    @locale = nil
-    @random = Random.new
-
     class << self
       attr_writer :locale
       attr_reader :random
@@ -28,10 +25,18 @@ module FactoryHelper
         @locale || I18n.locale
       end
 
-      def seed=(seed)
-        @random = seed ? Random.new(seed) : Random.new
+      def seed
+        @random.seed
+      end
+
+      def seed= new_seed
+        new_seed||= Random.new_seed.to_i* Kernel.rand(18446744073709551615).to_i
+        @random= Random.new(new_seed)
       end
     end
+
+    self.locale= nil
+    self.seed= nil
   end
 
   class Base
