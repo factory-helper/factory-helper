@@ -10,7 +10,7 @@ Its main use-case is slightly different than Faker's and will evolve in that dir
 [![Coverage Status](https://coveralls.io/repos/factory-helper/factory-helper/badge.svg)](https://coveralls.io/r/factory-helper/factory-helper)
 [![Gem Version](https://badge.fury.io/rb/factory-helper.svg)](http://badge.fury.io/rb/factory-helper)
 
-NOTE: While Faker generates data at random, returned values are not guaranteed to be unique.
+NOTE: While FactoryHelper generates data at random, returned values are not guaranteed to be unique.  They can however be deterministic if you use the seeding feature.
 
 Installing
 ----------
