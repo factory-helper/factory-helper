@@ -75,6 +75,3 @@ DEPENDENCIES
   rake
   rspec (~> 3.2)
   test-unit
-
-BUNDLED WITH
-   1.10.6
