@@ -14,10 +14,10 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 1.9.3"
 
-  spec.files         = `git ls-files -- lib/*`.split("\n") + %w(History.txt License.txt README.md)
-  spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  spec.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.files         = Dir['lib/**/*'].keep_if{|file| File.file?(file)} + %w(History.txt License.txt README.md)
+  spec.test_files    = Dir['test/**/*'].keep_if{|file| File.file?(file)} + Dir['spec/**/*'].keep_if{|file| File.file?(file)}
+  spec.executables   = Dir['bin/**/*'].keep_if{|file| File.file?(file)}.map{|file| File.basename(file) }
+  spec.require_paths = ['lib']
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
