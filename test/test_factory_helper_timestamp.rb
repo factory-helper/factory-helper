@@ -1,9 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
-class TestFactoryHelperTimestamp < Test::Unit::TestCase
+class TestFactoryHelperTimestamps < Test::Unit::TestCase
   def setup
-    @tester      = FactoryHelper::Timestamp
-    @time_ranges = FactoryHelper::Timestamp::TIME_RANGES
+    @tester      = FactoryHelper::Timestamps
+    @time_ranges = FactoryHelper::Timestamps::TIME_RANGES
   end
 
   def test_between
@@ -19,23 +19,23 @@ class TestFactoryHelperTimestamp < Test::Unit::TestCase
 
   def test_forward
     now = Time.now
-    1_minute_later = Time.now + 1*60
+    a_minute_later = Time.now + 1*60
 
     100.times do
       random_time = @tester.forward(60)
       assert random_time >= now, "Expected >= \"#{now}\", but got #{random_time}"
-      assert random_time <= 1_minute_later, "Expected <= \"#{now}\", but got #{random_time}"
+      assert random_time <= a_minute_later, "Expected <= \"#{now}\", but got #{random_time}"
     end
   end
 
   def test_backward
     now = Time.now
-    1_minute_earlier = Time.now - 1*60
+    a_minute_earlier = Time.now - 1*60
 
     100.times do
       random_time = @tester.backward(60)
       assert random_time <= now, "Expected <= \"#{now}\", but got #{random_time}"
-      assert random_time >= 1_minute_earlier, "Expected >= \"#{1_minute_earlier}\", but got #{random_time}"
+      assert random_time >= a_minute_earlier, "Expected >= \"#{a_minute_earlier}\", but got #{random_time}"
     end
   end
 
@@ -71,7 +71,7 @@ class TestFactoryHelperTimestamp < Test::Unit::TestCase
       random_forward  = @tester.forward(60*60*24, period)
 
       [random_backward, random_between, random_forward].each do |result|
-        assert period_range.include?(result.hour.to_i), "\"#{result.hour}\" expected to be included in FactoryHelper::Timestamp::TIME_RANGES[:#{period}] range"
+        assert period_range.include?(result.hour.to_i), "\"#{result.hour}\" expected to be included in FactoryHelper::Timestamps::TIME_RANGES[:#{period}] range"
       end
     end
   end
