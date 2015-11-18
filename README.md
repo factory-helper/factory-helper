@@ -386,7 +386,7 @@ FactoryHelper::Timestamps.between(from, to) #=> "2012-05-05 05:05:31 +0300"
 FactoryHelper::Timestamps.forward(from, 60) #=> "2012-05-05 05:06:10 +0300"
 
 # Random time in the past (up to maximum of N seconds)
-FactoryHelper::Timestamps.backward(to, 60) #=> "2012-05-05 05:04:53 +0300"
+FactoryHelper::Timestamps.backward(from, 60) #=> "2012-05-05 05:04:53 +0300"
 
 #where `from` and `to` were set to:
 from = ::Time.local(2012, 05, 05,  05,  05,  30, 222_222.222) # or Time.now - 1

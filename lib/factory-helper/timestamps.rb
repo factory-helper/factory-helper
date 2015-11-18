@@ -11,9 +11,9 @@ module FactoryHelper
         random_time(from, to)
       end
 
-      def backward(to= ::Time.at(0), seconds= 60)
-        from = to - seconds
-        random_time(from, to)
+      def backward(from= ::Time.at(0), seconds= 60)
+        to = from - seconds
+        random_time(to, from)
       end
 
     private
