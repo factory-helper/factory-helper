@@ -6,13 +6,13 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
   end
 
   def test_between
-    from = ::Time.local(2012, 05, 05,  05,  05,  30, 222_222)
-    to   = ::Time.local(2012, 05, 05,  05,  05,  33, 555_555)
+    from = ::Time.local(2012, 05, 05,  05,  05,  30, 222_222.222)
+    to   = ::Time.local(2012, 05, 05,  05,  05,  33, 555_555.555)
 
     100.times do
       random_time = @tester.between(from, to)
-      assert random_time.to_f > from.to_f, "Expected > \"#{from.to_f}\", but got #{random_time.to_f}"
-      assert random_time.to_f < to.to_f  , "Expected < \"#{to.to_f}\", but got #{random_time.to_f}"
+      assert random_time.to_r > from.to_r, "Expected > \"#{from.to_r}\", but got #{random_time.to_r}"
+      assert random_time.to_r < to.to_r  , "Expected < \"#{to.to_r}\", but got #{random_time.to_r}"
     end
   end
 

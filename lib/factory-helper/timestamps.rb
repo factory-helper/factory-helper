@@ -20,9 +20,9 @@ module FactoryHelper
 
       def random_time(from, to)
         diff_time = to - from
-        dif_in_usec = (diff_time * 1_000_000).to_i
-        rand_in_usec = FactoryHelper::Config.random.rand(dif_in_usec-1) + 1 # avoids 0
-        rand_in_sec = rand_in_usec.to_f / 1_000_000
+        dif_in_nsec = (diff_time * 1_000_000_000).to_i
+        rand_in_nsec = FactoryHelper::Config.random.rand(dif_in_nsec-1) + 1 # avoids 0
+        rand_in_sec = rand_in_nsec.to_r / 1_000_000_000
         from + rand_in_sec
       end
 
