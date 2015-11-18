@@ -2,18 +2,16 @@ module FactoryHelper
   class Timestamps
     class << self
 
-      def between(from=::Time.at(0), to=::Time.now)
+      def between(from= ::Time.at(0), to= ::Time.now)
         random_time(from, to)
       end
 
-      def forward(seconds= 60)
-        from = ::Time.now
+      def forward(from= ::Time.now, seconds= 60)
         to = from + seconds
         random_time(from, to)
       end
 
-      def backward(seconds= 60)
-        to = ::Time.now
+      def backward(to= ::Time.now, seconds= 60)
         from = to - seconds
         random_time(from, to)
       end

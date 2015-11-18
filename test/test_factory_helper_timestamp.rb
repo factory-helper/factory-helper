@@ -21,7 +21,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
     a_minute_later = ::Time.now + 1*60
 
     100.times do
-      random_time = @tester.forward(60)
+      random_time = @tester.forward(now, 60)
       assert random_time > now, "Expected > \"#{now}\", but got #{random_time}"
       assert random_time < a_minute_later, "Expected < \"#{now}\", but got #{random_time}"
     end
@@ -32,16 +32,17 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
     a_minute_earlier = ::Time.now - 1*60
 
     100.times do
-      random_time = @tester.backward(60)
+      random_time = @tester.backward(now, 60)
       assert random_time < now, "Expected < \"#{now}\", but got #{random_time}"
       assert random_time > a_minute_earlier, "Expected > \"#{a_minute_earlier}\", but got #{random_time}"
     end
   end
 
   def test_return_type
-    random_backward = @tester.backward(30)
-    random_between  = @tester.between(::Time.now - 30, ::Time.now + 30)
-    random_forward  = @tester.forward(30)
+    now = ::Time.now
+    random_backward = @tester.backward(now, 30)
+    random_between  = @tester.between(now - 30, now + 30)
+    random_forward  = @tester.forward(now, 30)
 
     [random_backward, random_between, random_forward].each do |result|
       assert result.is_a?(Time), "Expected a Time object, but got #{result.class}"
