@@ -374,6 +374,25 @@ FactoryHelper::Time.forward(23, :morning) # => "2014-09-26 06:54:47 -0700"
 FactoryHelper::Time.backward(14, :evening) #=> "2014-09-17 19:56:33 -0700"
 ```
 
+###FactoryHelper::Timestamps
+---------------------
+
+```ruby
+
+from = ::Time.local(2012, 05, 05,  05,  05,  30, 222_222.222) # or Time.now - 1
+to   = ::Time.local(2012, 05, 05,  05,  05,  33, 555_555.555) # or Time.now + 2
+
+# Random time between times up to the nanosecond level (that is 1_000_000_000 of a second)
+FactoryHelper::Timestamps.between(from, to) #=> "2012-05-05 05:05:31 +0300"
+
+# Random time in the future (up to maximum of N seconds)
+FactoryHelper::Timestamps.forward(from, 60) #=> "2012-05-05 05:06:10 +0300"
+
+# Random time in the past (up to maximum of N seconds)
+FactoryHelper::Timestamps.backward(to, 60) #=> "2012-05-05 05:04:53 +0300"
+
+```
+
 ###FactoryHelper::Hacker
 ---------------------
 Are you having trouble writing tech-savvy dialogue for your latest screenplay?
