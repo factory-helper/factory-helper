@@ -18,7 +18,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
 
   def test_forward
     now = ::Time.now
-    a_minute_later = ::Time.now + 1*60
+    a_minute_later = now + 1*60
 
     100.times do
       random_time = @tester.forward(now, 60)
@@ -29,7 +29,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
 
   def test_backward
     now = ::Time.now
-    a_minute_earlier = ::Time.now - 1*60
+    a_minute_earlier = now - 1*60
 
     100.times do
       random_time = @tester.backward(now, 60)

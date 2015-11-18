@@ -1,17 +1,17 @@
 module FactoryHelper
-  class Timestamps
-    class << self
+  class Timestamps < Base
 
-      def between(from= ::Time.at(0), to= ::Time.now)
+    class << self
+      def between(from= ::Time.at(0), to= ::Time.local(2050, 12, 31,  23,  23,  59, 999_999.999))
         random_time(from, to)
       end
 
-      def forward(from= ::Time.now, seconds= 60)
+      def forward(from= ::Time.at(0), seconds= 60)
         to = from + seconds
         random_time(from, to)
       end
 
-      def backward(to= ::Time.now, seconds= 60)
+      def backward(to= ::Time.at(0), seconds= 60)
         from = to - seconds
         random_time(from, to)
       end
@@ -25,7 +25,7 @@ module FactoryHelper
         rand_in_sec = rand_in_nsec.to_r / 1_000_000_000
         from + rand_in_sec
       end
-
     end
+
   end
 end
