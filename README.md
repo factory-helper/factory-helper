@@ -376,21 +376,22 @@ FactoryHelper::Time.backward(14, :evening) #=> "2014-09-17 19:56:33 -0700"
 
 ###FactoryHelper::Timestamps
 ---------------------
-Generates random time between times up to the nanosecond level (that is 1_000_000_000 of a second)
+Generates random time between times up to the nanosecond level (that is 1_000_000_000th of a second)
 
 ```ruby
-# Random time between times
-FactoryHelper::Timestamps.between(from, to) #=> "2012-05-05 05:05:31 +0300"
-
-# Random time in the future (up to maximum of N seconds)
-FactoryHelper::Timestamps.forward(from, 60) #=> "2012-05-05 05:06:10 +0300"
-
-# Random time in the past (up to maximum of N seconds)
-FactoryHelper::Timestamps.backward(from, 60) #=> "2012-05-05 05:04:53 +0300"
-
 #where `from` and `to` were set to:
 from = ::Time.local(2012, 05, 05,  05,  05,  30, 222_222.222) # or Time.now - 1
 to   = ::Time.local(2012, 05, 05,  05,  05,  33, 555_555.555) # or Time.now + 2
+
+# Random time between times
+FactoryHelper::Timestamps.between(from, to) #=> "2012-05-05 05:05:31 +0300"
+
+# Random time up to N seconds in the future
+FactoryHelper::Timestamps.forward(from, 60) #=> "2012-05-05 05:06:10 +0300"
+
+# Random time up to N seconds in the past
+FactoryHelper::Timestamps.backward(from, 60) #=> "2012-05-05 05:04:53 +0300"
+
 ```
 
 ###FactoryHelper::Hacker
