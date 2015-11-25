@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/test_helper.rb')
 
 class TestFactoryHelperTimestamps < Test::Unit::TestCase
   def setup
-    @tester      = FactoryHelper::Timestamps
+    @tester = FactoryHelper::Timestamps
   end
 
   def test_between
@@ -23,7 +23,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
     100.times do
       random_time = @tester.forward(now, 60)
       assert random_time > now, "Expected > \"#{now}\", but got #{random_time}"
-      assert random_time < a_minute_later, "Expected < \"#{now}\", but got #{random_time}"
+      assert random_time < a_minute_later, "Expected < \"#{a_minute_later}\", but got #{random_time}"
     end
   end
 
