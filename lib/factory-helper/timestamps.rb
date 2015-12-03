@@ -2,7 +2,7 @@ module FactoryHelper
   class Timestamps < Base
 
     class << self
-      def between(from = ::Time.at(0), to = ::Time.local(2050, 12, 31,  23,  23,  59, 999_999.999))
+      def between(from = ::Time.at(0), to = ::Time.at(2147483647))
         random_time(from, to)
       end
 
