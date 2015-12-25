@@ -13,6 +13,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
       random_time = @tester.between(from, to)
       assert random_time.to_r > from.to_r, "Expected > \"#{strftime_nsec from}\", but got \"#{strftime_nsec random_time}\""
       assert random_time.to_r < to.to_r  , "Expected < \"#{strftime_nsec to}\", but got \"#{strftime_nsec random_time}\""
+      assert random_time == random_time.round(9), "Expected \"#{strftime_nsec random_time}\" to be rounded to 9 digits."
     end
   end
 
@@ -24,6 +25,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
     100.times do
       random_time = @tester.between(from, to)
       assert random_time == expected, "Expected \"#{strftime_nsec expected}\", but got \"#{strftime_nsec random_time}\""
+      assert random_time == random_time.round(9), "Expected \"#{strftime_nsec random_time}\" to be rounded to 9 digits."
     end
   end
 
@@ -35,6 +37,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
       random_time = @tester.forward(now, 60)
       assert random_time > now, "Expected > \"#{strftime_nsec now}\", but got #{strftime_nsec random_time}"
       assert random_time < a_minute_later, "Expected < \"#{strftime_nsec a_minute_later}\", but got \"#{strftime_nsec random_time}\""
+      assert random_time == random_time.round(9), "Expected \"#{strftime_nsec random_time}\" to be rounded to 9 digits."
     end
   end
 
@@ -45,6 +48,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
     100.times do
       random_time = @tester.forward(now, 0.000_000_002)
       assert random_time == expected, "Expected > \"#{strftime_nsec expected}\", but got \"#{strftime_nsec random_time}\""
+      assert random_time == random_time.round(9), "Expected \"#{strftime_nsec random_time}\" to be rounded to 9 digits."
     end
   end
 
@@ -56,6 +60,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
       random_time = @tester.backward(now, 60)
       assert random_time < now, "Expected < \"#{strftime_nsec now}\", but got \"#{strftime_nsec random_time}\""
       assert random_time > a_minute_earlier, "Expected > \"#{strftime_nsec a_minute_earlier}\", but got \"#{strftime_nsec random_time}\""
+      assert random_time == random_time.round(9), "Expected \"#{strftime_nsec random_time}\" to be rounded to 9 digits."
     end
   end
 
@@ -66,6 +71,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
     100.times do
       random_time = @tester.backward(now, 0.000_000_002)
       assert random_time == expected, "Expected > \"#{strftime_nsec expected}\", but got \"#{strftime_nsec random_time}\""
+      assert random_time == random_time.round(9), "Expected \"#{strftime_nsec random_time}\" to be rounded to 9 digits."
     end
   end
 
