@@ -23,7 +23,7 @@ module FactoryHelper
         diff_in_nsec = (diff_time * 1_000_000_000).to_i
         rand_in_nsec = FactoryHelper::Config.random.rand(diff_in_nsec-1) + 1 # avoids 0
         rand_in_sec = rand_in_nsec.to_r / 1_000_000_000
-        from + rand_in_sec
+        (from + rand_in_sec).round(9)
       end
     end
 
