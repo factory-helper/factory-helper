@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe FactoryHelper::String do
   describe '.random' do
     specify 'is String' do
