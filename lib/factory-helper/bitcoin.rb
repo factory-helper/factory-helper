@@ -28,7 +28,7 @@ module FactoryHelper
         lv = 0
         str.split('').reverse.each_with_index { |v,i| lv += v.unpack('C')[0] * 256**i }
 
-        ret = ''
+        ret = ''.dup
         while lv > 0 do
           lv, mod = lv.divmod(base)
           ret << alphabet[mod]
