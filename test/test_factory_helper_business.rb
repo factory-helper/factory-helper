@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestFactoryHelperBusiness < Test::Unit::TestCase
@@ -12,22 +13,22 @@ class TestFactoryHelperBusiness < Test::Unit::TestCase
   def test_credit_card_number
     number1 = @tester.credit_card_number
     number2 = @tester.credit_card_number
-    assert @credit_card_number_list.include?(number1) 
-    assert @credit_card_number_list.include?(number2) 
+    assert @credit_card_number_list.include?(number1)
+    assert @credit_card_number_list.include?(number2)
   end
-  
+
   def test_credit_card_expiry_date
     date1 = @tester.credit_card_expiry_date
     date2 = @tester.credit_card_expiry_date
-    assert @credit_card_number_expiry_dates.collect{|d| Date.parse(d)}.include?(date1) 
+    assert @credit_card_number_expiry_dates.collect{|d| Date.parse(d)}.include?(date1)
     assert @credit_card_number_expiry_dates.collect{|d| Date.parse(d)}.include?(date2)
   end
-  
+
   def test_credit_card_type
     type1 = @tester.credit_card_type
     type2 = @tester.credit_card_type
-    assert @credit_card_types.include?(type1) 
-    assert @credit_card_types.include?(type2) 
+    assert @credit_card_types.include?(type1)
+    assert @credit_card_types.include?(type2)
   end
-  
+
 end
