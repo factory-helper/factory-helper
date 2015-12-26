@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require File.dirname(__FILE__) + '/../test_helper.rb'
 
 # when these tests are run under Ruby 1.8.7, they will use the
