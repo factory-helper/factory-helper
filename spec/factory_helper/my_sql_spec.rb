@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe FactoryHelper::MySQL do
   describe 'integers' do
     specify 'tinyint is in-bounds' do

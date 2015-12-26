@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #Port of http://shinytoylabs.com/jargon/
 module FactoryHelper
   class Hacker < Base

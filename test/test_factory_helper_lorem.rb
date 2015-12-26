@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require File.dirname(__FILE__) + '/test_helper.rb'
 
 class TestFactoryHelperLorem < Test::Unit::TestCase
@@ -12,7 +13,7 @@ class TestFactoryHelperLorem < Test::Unit::TestCase
   def test_character
     assert @tester.character.length == 1
   end
-  
+
   def test_character_type
     assert @tester.character.class == String
   end

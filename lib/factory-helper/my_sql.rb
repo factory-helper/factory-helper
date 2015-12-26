@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module FactoryHelper
   # created for MySQL 5.0 https://dev.mysql.com/doc/refman/5.0/en/numeric-types.html
   class MySQL < Base
