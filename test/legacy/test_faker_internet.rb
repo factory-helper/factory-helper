@@ -142,6 +142,6 @@ class TestFakerInternet < Test::Unit::TestCase
   end
 
   def test_fix_umlauts
-    assert_equal "aeoeuess", FactoryHelper::Internet.fix_umlauts('äöüß'.dup)
+    assert_equal "aeoeuess", FactoryHelper::Internet.fix_umlauts('äöüß')
   end
 end
