@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'bundler'
 require 'coveralls/rake/task'
 require 'rspec/core/rake_task'
