@@ -1,4 +1,5 @@
 # coding: utf-8
+# frozen_string_literal: true
 require File.expand_path(File.dirname(__FILE__) + '/../test_helper.rb')
 
 class TestFakerInternet < Test::Unit::TestCase
@@ -140,7 +141,7 @@ class TestFakerInternet < Test::Unit::TestCase
     assert_equal 64, @tester.device_token.size
   end
 
-  def test_fix_umlauts
-    assert_equal "aeoeuess", FactoryHelper::Internet.fix_umlauts('äöüß')
+  def test_fix_umlauts!
+    assert_equal "aeoeuess", FactoryHelper::Internet.fix_umlauts!('äöüß'.dup)
   end
 end
