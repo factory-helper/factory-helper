@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe FactoryHelper::Config do
   describe 'PRNG' do
     specify '.random.seed' do
