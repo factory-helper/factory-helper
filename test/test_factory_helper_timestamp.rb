@@ -64,7 +64,7 @@ class TestFactoryHelperTimestamps < Test::Unit::TestCase
     end
   end
 
-    def test_backward_pseudorandom
+  def test_backward_pseudorandom
     now = ::Time.now.round(9)
     expected = (now - 0.000_000_001).round(9)
 
