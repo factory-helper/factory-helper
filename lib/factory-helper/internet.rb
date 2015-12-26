@@ -44,7 +44,7 @@ module FactoryHelper
           return result[0...specifier.max]
         end
 
-        fix_umlauts!([
+        fix_umlauts([
           Proc.new { Name.first_name.gsub(/\W/, '').downcase },
           Proc.new {
             [ Name.first_name, Name.last_name ].map {|n|
@@ -65,7 +65,7 @@ module FactoryHelper
       end
 
       def domain_name
-        [ fix_umlauts!(domain_word), domain_suffix ].join('.')
+        [ fix_umlauts(domain_word), domain_suffix ].join('.')
       end
 
       def domain_suffix
@@ -110,12 +110,8 @@ module FactoryHelper
           chars.to_a.shuffle(:random => FactoryHelper::Config.random).join
       end
 
-      def fix_umlauts!(string= ''.dup)
-        {"ä" => 'ae', "ö" => 'oe', "ü" => 'ue', "ß" => 'ss'}.each do |key, val|
-          string.gsub!(key.downcase, val.downcase)
-          string.gsub!(key.upcase, val.upcase)
-        end
-        string
+      def fix_umlauts string= ''
+        fix_umlauts! string.dup
       end
 
       def domain_word
@@ -130,6 +126,14 @@ module FactoryHelper
         I18n.with_locale('en') do
           return Name.first_name.downcase
         end
+      end
+
+      def fix_umlauts! string= ''.dup
+        {"ä" => 'ae', "ö" => 'oe', "ü" => 'ue', "ß" => 'ss'}.each do |key, val|
+          string.gsub!(key.downcase, val.downcase)
+          string.gsub!(key.upcase, val.upcase)
+        end
+        string
       end
     end
   end

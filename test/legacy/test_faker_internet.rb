@@ -141,7 +141,7 @@ class TestFakerInternet < Test::Unit::TestCase
     assert_equal 64, @tester.device_token.size
   end
 
-  def test_fix_umlauts!
-    assert_equal "aeoeuess", FactoryHelper::Internet.fix_umlauts!('äöüß'.dup)
+  def test_fix_umlauts
+    assert_equal "aeoeuess", FactoryHelper::Internet.fix_umlauts('äöüß'.dup)
   end
 end
