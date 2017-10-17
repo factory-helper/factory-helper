@@ -5,7 +5,7 @@ class TestFactoryHelperSlackEmoji < Test::Unit::TestCase
 
   def setup
     @tester = FactoryHelper::SlackEmoji
-    @emoticon_regex= /^:([\w-]+):$/
+    @emoticon_regex= /^(?::(?:[-\w+]+):)+$/
   end
 
   def test_people
@@ -20,10 +20,6 @@ class TestFactoryHelperSlackEmoji < Test::Unit::TestCase
     assert @tester.food_and_drink.match(@emoticon_regex)
   end
 
-  def test_celebration
-    assert @tester.celebration.match(@emoticon_regex)
-  end
-
   def test_activity
     assert @tester.activity.match(@emoticon_regex)
   end
@@ -32,8 +28,16 @@ class TestFactoryHelperSlackEmoji < Test::Unit::TestCase
     assert @tester.travel_and_places.match(@emoticon_regex)
   end
 
-  def test_objects_and_symbols
-    assert @tester.objects_and_symbols.match(@emoticon_regex)
+  def test_objects
+    assert @tester.objects.match(@emoticon_regex)
+  end
+
+  def test_symbols
+    assert @tester.symbols.match(@emoticon_regex)
+  end
+
+  def test_flags
+    assert @tester.flags.match(@emoticon_regex)
   end
 
   def test_custom
