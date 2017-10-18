@@ -43,6 +43,15 @@ module FactoryHelper
         parse('slack_emoji.emoji')
       end
 
+      def objects_and_symbols
+        warn '[DEPRECATION] "FactoryHelper::SlackEmoji.objects_and_symbols" is deprecated. Please use "FactoryHelper::SlackEmoji.objects" or "FactoryHelper::SlackEmoji.symbols" instead.'
+        parse('slack_emoji.objects_and_symbols')
+      end
+
+      def celebration
+        warn '[DEPRECATION] "FactoryHelper::SlackEmoji.celebration" is deprecated. Please use "FactoryHelper::SlackEmoji.objects" or "FactoryHelper::SlackEmoji.symbols" instead.'
+        parse('slack_emoji.objects_and_symbols')
+      end
     end
   end
 end
