@@ -440,25 +440,28 @@ FactoryHelper::SlackEmoji.emoji #=> ":last_quarter_moon:"
 FactoryHelper::SlackEmoji.people #=> ":sleepy:"
 
 # from nature category
-FactoryHelper::SlackEmoji.nature #=> ":chestnut:"
+FactoryHelper::SlackEmoji.nature #=> ":dog:"
 
 # from food and drink category
 FactoryHelper::SlackEmoji.food_and_drink #=> ":tangerine:"
 
-# from celebration category
-FactoryHelper::SlackEmoji.celebration #=> ":ribbon:"
-
 # from activity category
-FactoryHelper::SlackEmoji.activity #=> ":performing_arts:"
+FactoryHelper::SlackEmoji.activity #=> ":ice_hockey_stick_and_puck:"
 
 # from travel and places category
 FactoryHelper::SlackEmoji.travel_and_places #=> ":truck:"
 
-# from objects & symbols category
-FactoryHelper::SlackEmoji.objects_and_symbols #=> ":alarm_clock:"
+# from objects category
+FactoryHelper::SlackEmoji.objects #=> ":iphone:"
+
+# from symbols category
+FactoryHelper::SlackEmoji.symbols #=> ":cupid:"
+
+# from flags category
+FactoryHelper::SlackEmoji.flags #=> ":flag-pr:"
 
 # from custom category
-FactoryHelper::SlackEmoji.custom #=> ":suspect:"
+FactoryHelper::SlackEmoji.custom #=> ":glitch_crab:"
 ```
 
 Customization

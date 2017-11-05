@@ -15,10 +15,6 @@ module FactoryHelper
         fetch('slack_emoji.food_and_drink')
       end
 
-      def celebration
-        fetch('slack_emoji.celebration')
-      end
-
       def activity
         fetch('slack_emoji.activity')
       end
@@ -27,8 +23,16 @@ module FactoryHelper
         fetch('slack_emoji.travel_and_places')
       end
 
-      def objects_and_symbols
-        fetch('slack_emoji.objects_and_symbols')
+      def objects
+        fetch('slack_emoji.objects')
+      end
+
+      def symbols
+        fetch('slack_emoji.symbols')
+      end
+
+      def flags
+        fetch('slack_emoji.flags')
       end
 
       def custom
@@ -39,6 +43,15 @@ module FactoryHelper
         parse('slack_emoji.emoji')
       end
 
+      def objects_and_symbols
+        warn '[DEPRECATION] "FactoryHelper::SlackEmoji.objects_and_symbols" is deprecated. Please use "FactoryHelper::SlackEmoji.objects" or "FactoryHelper::SlackEmoji.symbols" instead.'
+        parse('slack_emoji.objects_and_symbols')
+      end
+
+      def celebration
+        warn '[DEPRECATION] "FactoryHelper::SlackEmoji.celebration" is deprecated. Please use "FactoryHelper::SlackEmoji.objects" or "FactoryHelper::SlackEmoji.symbols" instead.'
+        parse('slack_emoji.objects_and_symbols')
+      end
     end
   end
 end
