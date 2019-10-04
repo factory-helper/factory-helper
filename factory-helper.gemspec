@@ -25,5 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry", "~> 0.10"
   spec.add_development_dependency "coveralls", "~> 0.8"
   spec.add_development_dependency "rspec", "~> 3.2"
-  spec.add_runtime_dependency "i18n", "~> 0.7"
+  spec.add_runtime_dependency "i18n", "~> 1.0"
 end
